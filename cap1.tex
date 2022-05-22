@@ -9,19 +9,26 @@ Análise e desenvolvimento de um Repositório Institucional de Trabalhos Acadêm
 
 \subsection{Delimitação do Tema} \label{subsec::ThemeDelimitation}
 
-\lipsum[2-3]
+A delimitação do tema se dará como a Análise e desenvolvimento de um Repositório Institucional de Trabalhos Acadêmicos, tendo como objetivo reunir e preservar as publicações acadêmicas e científicas produzidas em âmbito universitário, além de unificar o processo de publicações e correções por parte dos orientadores em uma única plataforma.
+
+O desenvolvimento deste projeto de pesquisa foi realizado durante o período de maio a julho de 2022, pelo acadêmico Lucas Machado Alf do curso bacharelado em Sistema de Informação na Sociedade Educacional Três de Maio – SETREM.
 
 \section{Objetivo Geral} \label{sec:objective}
 
+Desenvolver um repositório institucional de trabalhos acadêmicos que envolva o processo de correções e envio de revisões de publicações dentro da própria plataforma.
 
 \subsection{Objetivos Específicos}
 \begin{enumerate}
-    \item aaaaaaaaaaaaaaa
-    \item bbbbbbbbbbbbb
-    \item CCCCCCCCCC
-    \item DDDDDDDDDDD
-    \item FFFFFFFFFFFF
-    \item GGGGGGG
+    \item Explorar ferramentas existentes de repositório acadêmico.
+    \item Pesquisar sobre trabalhos e artigos relacionados.
+    \item Pesquisar sobre formas de armazenamento de documentos em nuvem.
+    \item Investigar mecanismos de busca e análise textual de documentos. (Ex. ElasticSearch e Full Text Search).
+    \item Elicitar os requisitos para o desenvolvimento do repositório acadêmico.
+    \item Definir as tecnologias que serão utilizadas para o desenvolvimento (Ex: banco de dados, linguagens e frameworks).
+    \item Desenvolver uma aplicação web de repositório acadêmico.
+    \item Avaliar a usabilidade do repositório acadêmico desenvolvido.
+    \item Realizar testes no repositório acadêmico desenvolvido, verificando o desempenho da aplicação em relação ao crescimento da quantidade de registros publicados na plataforma.
+
 \end{enumerate}
 
 
@@ -31,12 +38,17 @@ Análise e desenvolvimento de um Repositório Institucional de Trabalhos Acadêm
 
 \section{Problema} \label{sec::Problem}
 
+Como problema, foram ressaltados dois pontos principais que motivaram a escolha do tema desta pesquisa, sendo o primeiro a necessidade de reunir as publicações acadêmicas produzidas dentro de instituições de ensino superior em um repositório institucional, que fornece rápido acesso às publicações científicas produzidas dentro da instituição, tanto de forma interna para os estudantes da instituição, quanto de forma externa caso a instituição opte por disponibilizar o seu acervo de forma pública.
+
+Já o segundo ponto, envolve a forma como ocorre o processo de publicação, correção e revisão por parte dos orientadores, que em geral envolve a troca de vários emails entre os orientadores e os orientandos, processo o qual poderia ser melhorado por meio de um repositório acadêmico que suporte um esquema de publicação de revisões e correções.
+
+Levando em consideração estes pontos, o problema desta pesquisa foi definido como: Como projetar um repositório de trabalhos acadêmicos, que envolva o processo de correções e envio de revisões das publicações dentro da própria plataforma?
 
 
 \section{Hipóteses} \label{sec::Hypothesis}
 \begin{enumerate}
-    \item A is equal to C
-    \item D is bigger than G
+    \item O recurso de Full Text Search do banco de dados PostgreSQL pode ser utilizado como uma alternativa viável para realizar as consultas por publicações dentro do repositório acadêmico (menos de 3 segundos por consulta).
+    \item O processo de extração do texto das publicações para pesquisa e indexação é rápido o suficiente para não necessitar de processamento em segundo plano (menos de 5 segundos), mesmo em relatórios com mais de 200 páginas.
 \end{enumerate}
 
 
