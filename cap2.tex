@@ -34,19 +34,43 @@ Figura\ref{fig:diagram} é um exemplo para incluir uma figura.
 
 \section{Trabalhos Relacionados}\label{sec:rw}
 
+São apresentados neste tópico, os trabalhos relacionados, que possuem
+algum ponto em comum com o que se quer realizar no presente projeto.
+Pretendesse aqui, identificar estes pontos, e compará-los com a proposta deste projeto.
 
-\tablename~\ref{tab:my_table} apresenta um exemplo de tabela em Latex.
+\subsection{BDTC - Uma Biblioteca Digital de Trabalhos Científicos com Serviços Integrados}
 
-\begin{table}[htb]
-    \caption{This is a simple example to build a table.}
-    \label{tab:my_table}
-    \centering
-    \begin{tabular}{|c|c|c|c|}
-        \hline
-         A & B & N & T\\ 
-         \hline
-         X & y & W & G\\
-         \hline
-    \end{tabular}
-    
-\end{table}
+O trabalho desenvolvido por \cite{CERVI:bdtc}, possui como premissa a apresentação
+de uma proposta de biblioteca digital de trabalhos científicos, que foi denominada como
+BDTC, que possui como objetivo prover o suporte a três pontos fundamentais:
+auto-arquivamento do conteúdo, extração de metadados e busca de similaridade.
+
+Como um dos principais diferenciais, foi desenvolvido um mecanismo de
+busca por similaridade para as pesquisas realizadas na BDTC,
+que permite ao usuário encontrar trabalhos relacionados, mesmo que
+parte da palavra pesquisada não seja exatamente igual ao conteúdo presente
+no documento.
+
+Para o desenvolvimento deste mecanismo de busca, foi utilizado
+um recurso denominado \emph{n-gram}, que permite quebrar uma palavra em
+conjuntos de letras de tamanhos variados, é retratado como exemplo o
+\emph{3-gram} do termo "Juci", que pode ser quebrado em dois conjuntos de 3
+letras, ou seja, \emph{"Juc"} e \emph{"uci"}.
+
+Estes conjuntos são armazenados em uma tabela de indices no banco de
+dados, de forma que ao realizar uma consulta a partir de uma palavra,
+o sistema retorna todos os trabalhos que contenham algum dos conjuntos
+de letras que compõem a palavra pesquisada.
+
+Em relação com o presente projeto, pode ser realizado uma comparação com
+a forma como o mecanismo de busca foi desenvolvido na BDTC. Ao envés de
+utilizar o recurso de \emph{n-gram}, o sistema proposto neste projeto utilizara
+o recurso de \emph{tokenization} presente na ferramenta de Full Text Search do
+banco de dados PostgreSQL, que possui um resultado final semelhante, porem não
+idêntico, visto que o \emph{tokenization} remove o gênero das palavras,
+os espaços em branco, palavras comuns e palavras que não são consideradas relevantes.
+
+\subsection{Desenvolvimento da nova Biblioteca Digital da Biblioteca Brasiliana USP: Relato de Experiência}
+
+\subsection{Classificação facetada: proposta de categorias fundamentais para organizar teses e dissertações em uma biblioteca digital}
+
