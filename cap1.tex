@@ -43,13 +43,28 @@ possa ter acesso ao material desenvolvido, permitindo um maior engajamento
 entre os pesquisadores, e possíveis leitores das suas pesquisas,
 de preferência de forma gratuita e com fácil acesso.
 
+O tema desta pesquisa surgiu como uma continuação direta a um projeto
+de Prática Profissional desenvolvido pelo próprio autor, durante o sétimo
+semestre da graduação de Sistemas de Informação, na Sociedade Educacional
+Três de Maio – SETREM, que tinha como objetivo analisar o atual processo
+de armazenamento e acesso as publicações produzidas dentro da faculdade,
+e realizar a representação gráfica dos processos por meio de diagramas BPMN
+(\emph{Business Process Model and Notation}).
+
+Durante o desenvolvimento da pesquisa, foi constatado que a faculdade
+não possuía um sistema de repositório acadêmico online, que permitisse aos
+próprios alunos realizar a publicação de seus artigos, práticas profissionais,
+interdisciplinares, TCCs e demais pesquisas realizadas na instituição.
+Também foi verificado por meio da aplicação de um questionário, que
+mais da metade dos acadêmicos (cerca de 63,1\%) possuía interesse máximo
+em uma escala 1 até 5, por um repositório acadêmico institucional.
+
 Conforme \citep[p. 15]{PORTO:difusao_cientifica_recortes}, muitas
 instituições de ciência e tecnologia da informação acabam por não dispor
-de uma estrutura profissionalizada de comunicação, suporte e divulgação.
-Muitos institutos de pesquisas e universidades não contemplam a comunicação
-em seu organograma funcional, recorrendo a improvisações na hora da
-comunicação ou disponibilização de meios de acesso e divulgação
-de seus projetos.
+de uma estrutura profissionalizada de comunicação, suporte e divulgação
+de suas produções científicas, além de não contemplarem a comunicação em seu
+organograma funcional, recorrendo a improvisações na hora da comunicação
+ou disponibilização de meios de acesso e divulgação de seus projetos.
 
 Segundo o mesmo autor, em geral os sites de divulgação de pesquisa
 científica ainda se caracterizam pela apresentação de conteúdo estático,
@@ -73,6 +88,17 @@ documentos publicados. Além de possuir outros recursos como a possibilidade
 de interação entre os usuários da plataforma, por meio de troca de
 comentários e reações as pesquisas.
 
+Como principais contribuições do desenvolvimento deste projeto de
+pesquisa, estão as seguintes:
+
+\begin{itemize}
+    \item Desenvolvimento de uma plataforma de repositório acadêmico,
+          que possibilite a interação entre os acadêmicos e orientadores,
+          o envio de revisões e correções, o armazenamento e versionamento
+          de arquivos, a publicação de artigos, e a pesquisa por documentos
+          publicados.
+\end{itemize}
+
 \section{Problema} \label{sec::Problem}
 
 Como problema, foram ressaltados dois pontos principais que motivaram a escolha do tema desta pesquisa, sendo o primeiro a necessidade de reunir as publicações acadêmicas produzidas dentro de instituições de ensino superior em um repositório institucional, que fornece rápido acesso às publicações científicas produzidas dentro da instituição, tanto de forma interna para os estudantes da instituição, quanto de forma externa caso a instituição opte por disponibilizar o seu acervo de forma pública.
@@ -85,15 +111,35 @@ Levando em consideração estes pontos, o problema desta pesquisa foi definido c
 \section{Hipóteses} \label{sec::Hypothesis}
 \begin{enumerate}
     \item O recurso de Full Text Search do banco de dados PostgreSQL pode ser utilizado como uma alternativa viável para realizar as consultas por publicações dentro do repositório acadêmico (menos de 3 segundos por consulta).
-    \item O processo de extração do texto das publicações para pesquisa e indexação é rápido o suficiente para não necessitar de processamento em segundo plano (menos de 5 segundos), mesmo em relatórios com mais de 200 páginas.
+    \item O processo desenvolvido para extração do texto das publicações para pesquisa e indexação é rápido o suficiente para não necessitar de processamento em segundo plano (menos de 5 segundos), mesmo em relatórios com mais de 200 páginas.
 \end{enumerate}
 
 
 \section{Metodologia} \label{sec:Methodology}
 
+Conforme \citep[p. 15]{LOVATO:metodologia} a metodologia de pesquisa
+consiste em um ramo da filosofia da ciência, que estuda os métodos que
+o cientista pode utilizar para chegar nos resultados de seus estudos.
+Em outras palavras, tem como objetivo estudar os métodos que visam
+conduzir um aumento do conhecimento sobre o tema pesquisado, preocupando-se
+com o raciocínio, procedimentos e técnicas que podem ser utilizadas para
+dar credibilidade aos resultados.
+
 \subsection{Abordagem}
 
+Os métodos de abordagem segundo \citep[p. 29]{LOVATO:metodologia} podem ser
+divididos em dois grupos, o primeiro consiste no tipo de raciocínio que
+é utilizado para se chegar aos resultados e conclusões. Já o segundo
+se relaciona com a utilização, ou não, de analise numérica e estatística.
+
+Para o desenvolvimento deste trabalho, foram utilizadas as abordagens
+quantitativas e de pesquisa-ação, onde a abordagem quantidade foi utilizada
+para mensurar e avaliar o tempo de processamento para a extração de texto
+das publicações
+
 \subsection{Procedimentos}
+
+
 
 \subsection{Técnicas}
 
