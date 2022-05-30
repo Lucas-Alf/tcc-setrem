@@ -34,15 +34,6 @@ Desenvolver um repositório institucional de trabalhos acadêmicos que envolva o
 
 \section{Justificativa}\label{sec:justification}
 
-O processo de divulgação científica é essencial para a propagação do
-conhecimento, e para a motivação dos acadêmicos envolvidos,
-tendo isto em mente, é visto a necessidade da existência de plataformas,
-ou meios onde acadêmicos possam interagir de forma a publicar
-seus artigos e projetos de pesquisa para que a comunidade, ao menos interna a instituição,
-possa ter acesso ao material desenvolvido, permitindo um maior engajamento
-entre os pesquisadores, e possíveis leitores das suas pesquisas,
-de preferência de forma gratuita e com fácil acesso.
-
 O tema desta pesquisa surgiu como uma continuação direta a um projeto
 de Prática Profissional desenvolvido pelo próprio autor, durante o sétimo
 semestre da graduação de Sistemas de Informação, na Sociedade Educacional
@@ -52,52 +43,38 @@ e realizar a representação gráfica dos processos por meio de diagramas BPMN
 (\emph{Business Process Model and Notation}).
 
 Durante o desenvolvimento da pesquisa, foi constatado que a faculdade
-não possuía um sistema de repositório acadêmico online, que permitisse aos
-próprios alunos realizar a publicação de seus artigos, práticas profissionais,
+não possuía um sistema de repositório acadêmico que permita aos
+alunos realizar a publicação de seus artigos, práticas profissionais,
 interdisciplinares, TCCs e demais pesquisas realizadas na instituição.
 Também foi verificado por meio da aplicação de um questionário, que
-mais da metade dos acadêmicos (cerca de 63,1\%) possuía interesse máximo
-em uma escala 1 até 5, por um repositório acadêmico institucional.
+mais da metade dos acadêmicos (cerca de 63,1\% das respostas) apresentavam
+interesse máximo em uma escala de 1 a 5, por um repositório acadêmico
+institucional.
 
-Conforme \citep[p. 15]{PORTO:difusao_cientifica_recortes}, muitas
-instituições de ciência e tecnologia da informação acabam por não dispor
-de uma estrutura profissionalizada de comunicação, suporte e divulgação
-de suas produções científicas, além de não contemplarem a comunicação em seu
-organograma funcional, recorrendo a improvisações na hora da comunicação
-ou disponibilização de meios de acesso e divulgação de seus projetos.
+Ao pesquisar sobre repositórios acadêmicos existentes em plataformas
+agregadoras como o OpenDOAR, foi constatado que a maioria dos repositórios
+nacionais utilizam como base o DSpace, um \emph{software open source}
+escrito em Java para criação de repositórios acadêmicos institucionais,
+sendo minoria as instituições que utilizam um sistema de repositório
+institucional diferente deste.
 
-Segundo o mesmo autor, em geral os sites de divulgação de pesquisa
-científica ainda se caracterizam pela apresentação de conteúdo estático,
-não tendo grande enfoque em recursos que permitam a interação entre os
-usuários, muito menos entre os pesquisadores e seus orientadores.
+Também foi verificado que por se tratar de um \emph{software open source},
+fica a critério das instituições as questões referentes a segurança e
+privacidade dos dados, \emph{backup} dos arquivos e realizar as atualização
+das versões do DSpace, o que resulta em um ambiente fragmentado onde algumas
+instituições utilizam versões antigas do software, que por exemplo não
+funcionam de forma adequada em dispositivos móveis como relatado no
+trabalho relacionado de \cite{FernandesMacedes:2018}.
 
-Tendo isto em mente, este trabalho busca desenvolver uma plataforma de
-repositório acadêmico que possibilite a interação entre os acadêmicos e
+Possuindo como inspiração os tópicos anteriormente citados,
+este projeto de pesquisa possui como objetivo, e principal contribuição
+cientifica, a utilização de tecnologias atualmente populares no mercado,
+como recursos de armazenamento em nuvem, e ferramentas como o ReactJS e
+.NET Core, para o desenvolvimento de uma nova plataforma de repositório
+acadêmico, que possibilite a interação entre os alunos e
 orientadores, englobando o processo de correção e envio de revisões de
-publicações dentro da própria plataforma, de forma a abstrair o processo
-tradicional de correção e envio de revisões, onde o acadêmico precisa
-realizar a troca de diversos \emph{emails} com seus orientadores,
-enviando em anexo diferentes revisões de sua pesquisa.
-
-Desta forma, o repositório acadêmico proposto não será apenas um site
-de exibição de conteúdo estático, mas sim uma plataforma que englobe
-diferentes processos necessários para o desenvolvimento de pesquisas
-científicas, como o envio de revisões e correções, o armazenamento
-e versionamento dos arquivos, a publicação de artigos, e a pesquisa por
-documentos publicados. Além de possuir outros recursos como a possibilidade
-de interação entre os usuários da plataforma, por meio de troca de
-comentários e reações as pesquisas.
-
-Como principais contribuições do desenvolvimento deste projeto de
-pesquisa, estão as seguintes:
-
-\begin{itemize}
-    \item Desenvolvimento de uma plataforma de repositório acadêmico,
-          que possibilite a interação entre os acadêmicos e orientadores,
-          o envio de revisões e correções, o armazenamento e versionamento
-          de arquivos, a publicação de artigos, e a pesquisa por documentos
-          publicados.
-\end{itemize}
+publicações dentro da própria plataforma, e que seja uma alternativa
+as atuais plataformas de repositórios existentes como o DSpace.
 
 \section{Problema} \label{sec::Problem}
 
