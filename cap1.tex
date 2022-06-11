@@ -9,11 +9,11 @@ baseado em nuvem.
 
 \subsection{Delimitação do Tema} \label{subsec::ThemeDelimitation}
 
-A delimitação do tema se dará como o desenvolvimento de um repositório institucional
-de periódicos acadêmicos baseado em nuvem, tendo como objetivo reunir e preservar
-as publicações acadêmicas e científicas produzidas em âmbito universitário,
-além de unificar o processo de publicações e correções por parte dos orientadores
-em uma única plataforma.
+A delimitação do tema se dará como o desenvolvimento de um
+repositório institucional de trabalhos acadêmicos, utilizando tecnologias
+baseadas em nuvem para realizar o armazenamento e acesso aos dados,
+e que envolva o processo de correções e envio de revisões de
+publicações dentro da própria plataforma.
 
 O desenvolvimento deste projeto de pesquisa foi realizado durante o período de
 maio a julho de 2022, pelo acadêmico Lucas Machado Alf do curso bacharelado
@@ -21,20 +21,22 @@ em Sistema de Informação na Sociedade Educacional Três de Maio – SETREM.
 
 \section{Objetivo Geral} \label{sec:objective}
 
-Desenvolver um repositório institucional de trabalhos acadêmicos baseado
-em nuvem, que envolva o processo de correções e envio de revisões
-de publicações dentro da própria plataforma.
+Desenvolver um repositório institucional de periódicos acadêmicos
+baseado em nuvem, tendo como objetivo reunir e preservar
+as publicações acadêmicas e científicas produzidas em âmbito universitário,
+além de unificar o processo de publicações e correções por parte dos orientadores
+em uma única plataforma.
 
 \subsection{Objetivos Específicos}
 \begin{enumerate}
-    \item Explorar ferramentas existentes de repositório acadêmico.
-    \item Pesquisar sobre trabalhos e artigos relacionados.
-    \item Pesquisar sobre formas de armazenamento de documentos em nuvem.
-    \item Investigar mecanismos de busca e análise textual de documentos. (Ex. ElasticSearch e Full Text Search).
-    \item Elicitar os requisitos para o desenvolvimento do repositório acadêmico.
-    \item Definir as tecnologias que serão utilizadas para o desenvolvimento (Ex: banco de dados, linguagens e frameworks).
-    \item Desenvolver uma aplicação web de repositório acadêmico.
-    \item Realizar testes no repositório acadêmico desenvolvido, verificando o desempenho da aplicação em relação ao crescimento da quantidade de registros publicados na plataforma.
+      \item Explorar ferramentas existentes de repositório acadêmico.
+      \item Pesquisar sobre trabalhos e artigos relacionados.
+      \item Pesquisar sobre formas de armazenamento de documentos em nuvem.
+      \item Investigar mecanismos de busca e análise textual de documentos. (Ex. ElasticSearch e Full Text Search).
+      \item Elicitar os requisitos para o desenvolvimento do repositório acadêmico.
+      \item Definir as tecnologias que serão utilizadas para o desenvolvimento (Ex: banco de dados, linguagens e frameworks).
+      \item Desenvolver uma aplicação web de repositório acadêmico.
+      \item Realizar testes no repositório acadêmico desenvolvido, verificando o desempenho da aplicação em relação ao crescimento da quantidade de registros publicados na plataforma.
 
 \end{enumerate}
 
@@ -64,8 +66,6 @@ nacionais utilizam como base o DSpace, um \emph{software open source}
 escrito em Java para criação de repositórios acadêmicos institucionais,
 sendo minoria as instituições que utilizam um sistema de repositório
 institucional diferente deste.
-
-
 
 No trabalho relacionado de \cite{GarciaRodrigoMoreira2019DdnB} é possível
 verificar que por se tratar de um \emph{software open source},
@@ -124,15 +124,22 @@ da própria plataforma?
 
 \section{Hipóteses} \label{sec::Hypothesis}
 \begin{enumerate}
-    \item O recurso de Full Text Search do banco de dados PostgreSQL
-          pode ser utilizado como uma alternativa viável para realizar
-          as consultas por publicações dentro do repositório acadêmico
-          (menos de 3 segundos por consulta).
+      \item O recurso de Full Text Search do banco de dados PostgreSQL
+            pode ser utilizado como uma alternativa viável para realizar
+            as consultas por publicações dentro do repositório acadêmico
+            (menos de 5 segundos por consulta), mesmo em bases de dados
+            com mais de 30 mil publicações.
 
-    \item O processo desenvolvido para extração do texto das publicações
-          para pesquisa e indexação é rápido o suficiente para não necessitar
-          de processamento em segundo plano (menos de 5 segundos),
-          mesmo em relatórios com mais de 200 páginas.
+      \item O processo desenvolvido para extração do texto das publicações
+            para pesquisa e indexação é rápido o suficiente para não
+            necessitar de processamento em segundo plano (menos de 5 segundos),
+            mesmo em publicações com mais de 200 páginas.
+
+      \item É possível manter um ambiente em nuvem contendo os serviços
+            de backend, frontend, banco de dados e armazenamento das
+            publicações em nuvem, com um orçamento máximo de R\$ 500,00
+            por mês.
+
 \end{enumerate}
 
 
@@ -140,7 +147,7 @@ da própria plataforma?
 
 Conforme \citep[p. 15]{LOVATO:metodologia} a metodologia de pesquisa
 consiste em um ramo da filosofia da ciência, que estuda os métodos que
-o cientista pode utilizar para chegar nos resultados de seus estudos.
+os cientistas podem utilizar para chegar nos resultados de seus estudos.
 Em outras palavras, tem como objetivo estudar os métodos que visam
 conduzir um aumento do conhecimento sobre o tema pesquisado, preocupando-se
 com o raciocínio, procedimentos e técnicas que podem ser utilizadas para
@@ -153,19 +160,88 @@ divididos em dois grupos, o primeiro consiste no tipo de raciocínio que
 é utilizado para se chegar aos resultados e conclusões. Já o segundo
 se relaciona com a utilização, ou não, de análise numérica e estatística.
 
+Segundo o mesmo autor, a abordagem quantitativa é utilizada quando
+as conclusões são obtidas por meio de um conjunto de dados numéricos
+e analise estatística, busca compreender melhor situações onde é possível
+estabelecer relação entre variáveis, correlações ou causa-efeito.
+
+Já segundo \cite{GIL:metodologia} a abordagem dedutiva, conforme a definição clássica,
+é o método em que se parte de um conceito geral, onde parte dos
+conceitos são conhecidos como verdadeiros ou falsos, e se chega
+a uma conclusão particular, por meio da aplicação da lógica.
+
 Para o desenvolvimento deste trabalho, foram utilizadas as abordagens
-quantitativas e de pesquisa-ação, onde a abordagem quantidade foi utilizada
-para mensurar e avaliar o tempo de processamento para a extração de texto
-das publicações
+dedutiva e quantitativa, respetivamente a primeira abordagem foi utilizada
+de forma a utilizar o raciocínio logico sobre pesquisas e repositórios
+acadêmicos já existes, para melhor compreender o escopo da pesquisa,
+e assim propor soluções mais adequadas ao problema.
+
+Já a segunda abordagem foi utilizada para mensurar e analisar
+os dados numéricos referentes ao tempo de consultas e arquivamento
+das publicações no repositório acadêmico proposto, além dos
+custos envolvendo o armazenamento das publicações em nuvem.
 
 \subsection{Procedimentos}
 
+Para a realização deste trabalho, foram utilizados os procedimentos
+de pesquisa bibliográfica e pesquisa ação, sendo o primeiro
+respectivamente utilizado para buscar informações sobre o escopo da
+pesquisa em livros, artigos e revistas. Já o segundo procedimento foi
+utilizado na forma de pesquisa, aplicação e avaliação de tecnologias
+que possam ser utilizadas durante o desenvolvimento do repositório
+acadêmico proposto.
 
-
-\subsection{Técnicas}
+Conforme \citep[p. 35]{LOVATO:metodologia}, a pesquisa bibliográfica
+consiste na consulta por obras publicadas por outros autores a
+respeito do tema da pesquisa ou escopo a ser pesquisado. Já na abordagem
+de pesquisa ação, diferente de outras abordagens em que o principal
+embasamento consiste na literatura, o problema é real, e não existe
+um plano previamente definido e inflexível, mas sim um refinamento
+contantes entre planejar, agir avaliar e refletir.
 
 \subsection{Validação das Hipóteses}
 
+Durante a elaboração do presente trabalho, foram elencadas
+três hipóteses, sendo a  primeira "O recurso de Full Text
+Search do banco de dados PostgreSQL pode ser utilizado como
+uma alternativa viável para realizar as consultas por publicações
+dentro do repositório acadêmico (menos de 5 segundos por consulta),
+mesmo em bases de dados com mais de 30 mil publicações".
+Esta hipótese pode ser validada por meio da preparação de uma base
+de dados de testes, que contenha mais de 30 mil publicações, e
+em seguida, realizar uma mesma consulta diversas vezes, realizando
+a média de tempo de execução.
+
+A segunda hipótese é apresentada como "O processo desenvolvido
+para extração do texto das publicações para pesquisa e indexação
+é rápido o suficiente para não necessitar de processamento em
+segundo plano (menos de 5 segundos), mesmo em publicações com mais
+de 200 páginas". Esta segunda hipótese pode ser validada por meio
+de um teste de desempenho, que consiste realizar a publicação de uma
+mesma publicação com mais de 200 páginas diversas vezes, e mensurar
+o tempo médio para conclusão do processo.
+
+Já a terceira hipótese, consiste em "É possível manter um ambiente
+em nuvem contendo os serviços de backend, frontend, banco de dados
+e armazenamento das publicações em nuvem, com um orçamento máximo
+de R\$ 500,00 por mês". Esta hipótese pode ser validada por meio
+da comparação dos preços de diferentes provedores de nuvem, com
+base nos requisitos mínimos estipulados para o repositório
+acadêmicos proposto.
+
+\subsection{Técnicas}
+
+Conforme \citep[p. 174]{LAKATOS:metodologia}, as técnicas podem ser definidas
+como um conjunto de procedimentos ou processos que servem a
+uma ciência ou arte, sendo utilizados para trazer tais
+preceitos a parte prática, tendo em mente que toda ciência utiliza
+de incontáveis técnicas para a obtenção de seus resultados.
+
+Durante o desenvolvimento desta pesquisa, por se tratar do
+desenvolvimento de um software, foram utilizadas as técnicas
+de prototipação de telas e diagramas UML por meio da ferramenta Figma,
+além da técnica de testes para verificar o funcionamento do
+repositório acadêmico desenvolvimento.
 
 \section{Orçamento} \label{sec:budget}
 
