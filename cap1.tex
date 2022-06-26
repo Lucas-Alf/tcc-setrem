@@ -26,14 +26,14 @@ em uma única plataforma.
 
 \subsection{Objetivos Específicos}
 \begin{enumerate}
-      \item Explorar ferramentas existentes de repositório acadêmico.
-      \item Pesquisar sobre trabalhos e artigos relacionados.
-      \item Pesquisar sobre formas de armazenamento de documentos em nuvem.
-      \item Investigar mecanismos de busca e análise textual de documentos. (Ex. ElasticSearch e Full Text Search).
-      \item Elicitar os requisitos para o desenvolvimento do repositório acadêmico.
-      \item Definir as tecnologias que serão utilizadas para o desenvolvimento (Ex: banco de dados, linguagens e frameworks).
-      \item Desenvolver uma aplicação web de repositório acadêmico.
-      \item Realizar testes no repositório acadêmico desenvolvido, verificando o desempenho da aplicação em relação ao crescimento da quantidade de registros publicados na plataforma.
+    \item Explorar ferramentas existentes de repositório acadêmico.
+    \item Pesquisar sobre trabalhos e artigos relacionados.
+    \item Pesquisar sobre formas de armazenamento de documentos em nuvem.
+    \item Investigar mecanismos de busca e análise textual de documentos. (Ex. ElasticSearch e Full Text Search).
+    \item Elicitar os requisitos para o desenvolvimento do repositório acadêmico.
+    \item Definir as tecnologias que serão utilizadas para o desenvolvimento (Ex: banco de dados, linguagens e frameworks).
+    \item Desenvolver uma aplicação web de repositório acadêmico.
+    \item Realizar testes no repositório acadêmico desenvolvido, verificando o desempenho da aplicação em relação ao crescimento da quantidade de registros publicados na plataforma.
 
 \end{enumerate}
 
@@ -65,14 +65,14 @@ criação de repositórios acadêmicos institucionais,
 sendo minoria as instituições que utilizam um sistema de repositório
 institucional diferente deste.
 
-No trabalho relacionado de \cite{GarciaRodrigoMoreira2019DdnB} é possível
+No trabalho relacionado de \cite{2019:RodrigoMoreira} é possível
 verificar que por se tratar de um \emph{software open source},
 fica a critério das instituições as questões pertinentes a personalização
 do DSpace, segurança e privacidade dos dados, \emph{backup} dos arquivos,
 e a realização das atualizações de versão, o que resulta em um ambiente
 fragmentado onde algumas instituições utilizam versões antigas do \emph{software},
 que por exemplo não funcionam de forma adequada em dispositivos móveis como
-relatado no trabalho relacionado de \cite{FernandesMacedes:2019}.
+relatado no trabalho relacionado de \cite{2019:FernandesMacedes}.
 
 Possuindo como inspiração os tópicos anteriormente citados,
 este trabalho de conclusão de curso possui como objetivo e principal
@@ -122,21 +122,21 @@ da própria plataforma?
 
 \section{Hipóteses} \label{sec::Hypothesis}
 \begin{enumerate}
-      \item O recurso de Full Text Search do banco de dados PostgreSQL
-            pode ser utilizado como uma alternativa viável para realizar
-            as consultas por publicações dentro do repositório acadêmico
-            (menos de 5 segundos por consulta), mesmo em bases de dados
-            com mais de 30 mil publicações.
+    \item O recurso de Full Text Search do banco de dados PostgreSQL
+          pode ser utilizado como uma alternativa viável para realizar
+          as consultas por publicações dentro do repositório acadêmico
+          (menos de 5 segundos por consulta), mesmo em bases de dados
+          com mais de 30 mil publicações.
 
-      \item O processo desenvolvido para extração do texto das publicações
-            para pesquisa e indexação é rápido o suficiente para não
-            necessitar de processamento em segundo plano (menos de 5 segundos),
-            mesmo em publicações com mais de 200 páginas.
+    \item O processo desenvolvido para extração do texto das publicações
+          para pesquisa e indexação é rápido o suficiente para não
+          necessitar de processamento em segundo plano (menos de 5 segundos),
+          mesmo em publicações com mais de 200 páginas.
 
-      \item É possível manter um ambiente em nuvem contendo os serviços
-            de backend, frontend, banco de dados e armazenamento das
-            publicações em nuvem, com um orçamento máximo de R\$ 500,00
-            por mês.
+    \item É possível manter um ambiente em nuvem contendo os serviços
+          de backend, frontend, banco de dados e armazenamento das
+          publicações em nuvem, com um orçamento máximo de R\$ 500,00
+          por mês.
 
 \end{enumerate}
 
@@ -277,18 +277,18 @@ tem como objetivo responder a questão "quanto será necessário
 despender?", distribuindo os gastos com o projeto em vários items.
 
 \begin{table}[H]
-      \caption{Orçamento}
-      \begin{tabular}{|p{6.4cm}|c|r|r|}
-            \hline
-            {\textbf{Item}}                         & {\textbf{Quantidade}} & {\textbf{Valor Unitário}} & {\textbf{Valor Total}} \\ \hline
-            {{Impressões}}                          & {1000}                & {R\$ 0,30 }               & {R\$ 300,00}           \\ \hline
-            {{Capa}}                                & {2}                   & {R\$ 25,00 }              & {R\$ 50,00}            \\ \hline
-            {{Espirais}}                            & {3}                   & {R\$ 5,00 }               & {R\$ 15,00}            \\ \hline
-            {{Serviços de Designer}}                & {1}                   & {R\$ 350,00 }             & {R\$ 350,00}           \\ \hline
-            {{Serviços de Banco de Dados em nuvem}} & {1}                   & {R\$ 300,00 }             & {R\$ 300,00}           \\ \hline
-            {{Serviços de hospedagem em nuvem}}     & {2}                   & {R\$ 100,00 }             & {R\$ 200,00}           \\ \hline
-            {{Serviços de armazenamento em nuvem}}  & {1}                   & {R\$ 30,00 }              & {R\$ 30,00}            \\ \hline
-      \end{tabular}
+    \caption{Orçamento}
+    \begin{tabular}{|p{6.4cm}|c|r|r|}
+        \hline
+        {\textbf{Item}}                         & {\textbf{Quantidade}} & {\textbf{Valor Unitário}} & {\textbf{Valor Total}} \\ \hline
+        {{Impressões}}                          & {1000}                & {R\$ 0,30 }               & {R\$ 300,00}           \\ \hline
+        {{Capa}}                                & {2}                   & {R\$ 25,00 }              & {R\$ 50,00}            \\ \hline
+        {{Espirais}}                            & {3}                   & {R\$ 5,00 }               & {R\$ 15,00}            \\ \hline
+        {{Serviços de Designer}}                & {1}                   & {R\$ 350,00 }             & {R\$ 350,00}           \\ \hline
+        {{Serviços de Banco de Dados em nuvem}} & {1}                   & {R\$ 300,00 }             & {R\$ 300,00}           \\ \hline
+        {{Serviços de hospedagem em nuvem}}     & {2}                   & {R\$ 100,00 }             & {R\$ 200,00}           \\ \hline
+        {{Serviços de armazenamento em nuvem}}  & {1}                   & {R\$ 30,00 }              & {R\$ 30,00}            \\ \hline
+    \end{tabular}
 \end{table}
 
 \section{Cronograma de Atividades} \label{sec:schedule_activities_table}
@@ -298,28 +298,28 @@ visa responder a pergunta “quando?”, sendo elaborado de forma a
 representar a previsão do tempo necessário para realização da pesquisa.
 
 \begin{table}[H]
-      \caption{Cronograma}
-      \begin{tabular}{|p{7cm}|l|l|l|l|l|l|l|}
-            \hline
-            \multicolumn{1}{|c|}{}                                      & \multicolumn{7}{c|}{\textbf{2022}}                                                                                                                                                                   \\ \cline{2-8}
-            \multicolumn{1}{|c|}{\multirow{-2}{*}{\textbf{Atividades}}} & \textbf{Mai}                       & \textbf{Jun}             & \textbf{Jul}             & \textbf{Ago}             & \textbf{Set}             & \textbf{Out}             & \textbf{Nov}             \\ \hline
-            Desenvolvimento do projeto                                  & \cellcolor[HTML]{000000}           & \cellcolor[HTML]{000000} &                          &                          &                          &                          &                          \\ \hline
-            Entrega e validação do projeto                              &                                    & \cellcolor[HTML]{000000} & \cellcolor[HTML]{C0C0C0} &                          &                          &                          &                          \\ \hline
-            Organização de Dataset de trabalhos acadêmicos              &                                    &                          & \cellcolor[HTML]{C0C0C0} &                          &                          &                          &                          \\ \hline
-            Desenvolvimento de protótipos                               &                                    &                          & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} &                          &                          &                          \\ \hline
-            Desenvolvimento do repositório acadêmico                    &                                    &                          & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} &                          \\ \hline
-            Realização de testes no repositório acadêmico               &                                    &                          &                          & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} \\ \hline
-            Documentação dos resultados                                 &                                    &                          &                          & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} \\ \hline
-            Entrega do Relatório Final                                  &                                    &                          &                          &                          &                          &                          & \cellcolor[HTML]{C0C0C0} \\ \hline
-            Apresentação do Relatório Final                             &                                    &                          &                          &                          &                          &                          & \cellcolor[HTML]{C0C0C0} \\ \hline
-      \end{tabular}
+    \caption{Cronograma}
+    \begin{tabular}{|p{7cm}|l|l|l|l|l|l|l|}
+        \hline
+        \multicolumn{1}{|c|}{}                                      & \multicolumn{7}{c|}{\textbf{2022}}                                                                                                                                                                   \\ \cline{2-8}
+        \multicolumn{1}{|c|}{\multirow{-2}{*}{\textbf{Atividades}}} & \textbf{Mai}                       & \textbf{Jun}             & \textbf{Jul}             & \textbf{Ago}             & \textbf{Set}             & \textbf{Out}             & \textbf{Nov}             \\ \hline
+        Desenvolvimento do projeto                                  & \cellcolor[HTML]{000000}           & \cellcolor[HTML]{000000} &                          &                          &                          &                          &                          \\ \hline
+        Entrega e validação do projeto                              &                                    & \cellcolor[HTML]{000000} & \cellcolor[HTML]{C0C0C0} &                          &                          &                          &                          \\ \hline
+        Organização de Dataset de trabalhos acadêmicos              &                                    &                          & \cellcolor[HTML]{C0C0C0} &                          &                          &                          &                          \\ \hline
+        Desenvolvimento de protótipos                               &                                    &                          & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} &                          &                          &                          \\ \hline
+        Desenvolvimento do repositório acadêmico                    &                                    &                          & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} &                          \\ \hline
+        Realização de testes no repositório acadêmico               &                                    &                          &                          & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} \\ \hline
+        Documentação dos resultados                                 &                                    &                          &                          & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} \\ \hline
+        Entrega do Relatório Final                                  &                                    &                          &                          &                          &                          &                          & \cellcolor[HTML]{C0C0C0} \\ \hline
+        Apresentação do Relatório Final                             &                                    &                          &                          &                          &                          &                          & \cellcolor[HTML]{C0C0C0} \\ \hline
+    \end{tabular}
 \end{table}
 
 \begin{table}[H]
-      \begin{tabular}{|
-                  >{\columncolor[HTML]{C0C0C0}}l |l|}
-            \hline
-                                                            & Proposto  \\ \hline
-            \cellcolor[HTML]{000000}{\color[HTML]{000000} } & Realizado \\ \hline
-      \end{tabular}
+    \begin{tabular}{|
+            >{\columncolor[HTML]{C0C0C0}}l |l|}
+        \hline
+                                                        & Proposto  \\ \hline
+        \cellcolor[HTML]{000000}{\color[HTML]{000000} } & Realizado \\ \hline
+    \end{tabular}
 \end{table}
