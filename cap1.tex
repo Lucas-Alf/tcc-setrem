@@ -7,17 +7,15 @@ baseado em nuvem.
 \subsection{Delimitação do Tema} \label{subsec::ThemeDelimitation}
 
 A delimitação do tema se dará como o desenvolvimento de uma aplicação
-web de repositório institucional, utilizando tecnologias como React e
-Vite para o desenvolvimento do frontend, o .NET 6.0 para a criação
-de APIs, o PostgreSQL como banco de dados, e recursos de
-armazenamento baseados em nuvem como o Amazon S3 ou Digital
-Ocean Spaces para o armazenamento de arquivos.
+web de repositório institucional, que envolva o processo de envio
+de correções e revisões das publicações dentro da própria plataforma,
+e que seja preparado desde a sua concepção para ser executado em ambientes
+em nuvem.
 
-
-
-baseadas em nuvem para realizar o armazenamento e acesso aos dados,
-envolvendo o processo de correções e envio de revisões de
-publicações dentro da própria plataforma.
+Para a criação do repositório institucional será utilizando de tecnologias
+como React e Vite para o frontend, Microsoft .NET 6.0 para a criação
+de APIs, PostgreSQL como banco de dados, e recursos de armazenamento baseados em
+nuvem como o Amazon S3 ou Digital Ocean Spaces para o armazenamento de arquivos.
 
 O desenvolvimento deste projeto de pesquisa foi realizado durante o período de
 maio a dezembro de 2022, pelo acadêmico Lucas Machado Alf do curso bacharelado
@@ -58,7 +56,7 @@ e realizar a representação gráfica dos processos por meio de diagramas BPMN
 
 Conforme o próprio autor, durante o desenvolvimento da pesquisa foi constatado que a faculdade
 não possuía um sistema de repositório acadêmico que possibilitasse aos
-alunos realizar a publicação de seus artigos, práticas profissionais,
+acadêmicos realizar a publicação de seus artigos, práticas profissionais,
 interdisciplinares, TCCs e demais pesquisas realizadas na instituição.
 Também foi verificado por meio da aplicação de um questionário, que
 mais da metade dos acadêmicos (cerca de 62,1\% das respostas) apresentavam
@@ -94,7 +92,7 @@ as atuais plataformas de repositórios existentes.
 Com a realização desta pesquisa, buscou-se trazer contribuição
 tanto para os acadêmicos da faculdade SETREM, quanto para outras
 instituições que possam optar pela utilização do repositório
-acadêmico desenvolvido. Também houve o proposito de expor a
+acadêmico desenvolvido. Também houve o propósito de expor a
 importância da utilização de repositórios acadêmicos para realizar
 a preservação digital dos materiais produzido, evitando assim a perda
 ou esquecimento da produção acadêmica e cientifica realizada dentro
@@ -177,7 +175,7 @@ conceitos são conhecidos como verdadeiros ou falsos, e se chega
 a uma conclusão particular, por meio da aplicação da lógica.
 
 Para o desenvolvimento deste trabalho, foram utilizadas as abordagens
-dedutiva e quantitativa, respetivamente a primeira abordagem foi utilizada
+dedutiva e quantitativa, a primeira abordagem foi utilizada
 de forma a utilizar o raciocínio lógico sobre pesquisas e repositórios
 acadêmicos já existes, para melhor compreender o escopo da pesquisa,
 e assim propor soluções mais adequadas ao problema.
@@ -229,10 +227,19 @@ Search do banco de dados PostgreSQL pode ser utilizado como
 uma alternativa viável para realizar as consultas por publicações
 dentro do repositório acadêmico (menos de 5 segundos por consulta),
 mesmo em bases de dados com mais de 30 mil publicações".
-Esta hipótese pode ser validada por meio da preparação de uma base
-de dados de testes, que contenha mais de 30 mil publicações, e
-em seguida, realizar uma mesma consulta diversas vezes, realizando
-a média de tempo de execução.
+
+Para realizar a validação desta hipótese, será utilizado do
+arXiv Dataset\footnote{https://www.kaggle.com/Cornell-University/arxiv},
+um dataset gratuito com mais de 1.7 milhões de artigos e publicações acadêmicas,
+para popular a base de dados do repositório institucional. Como o arXiv Dataset
+possui um grande número de registros, a base de dados será limitada
+a cerca de 35 mil publicações.
+
+Após a preparação da base de dados, serão desenvolvidas
+5 consultas diferentes, que serão executadas 30 vezes cada, de forma a obter um tempo
+médio de execução por consulta. Todos os testes realizados serão executados utilizando
+a versão 14 do PostgreSQL, em ambiente Windows, com as seguintes configurações de hardware:
+Intel Core i3 9100, 16GB RAM DDR4 2400Mhz, 1TB SSD NVME WD Blue SN550.
 
 A segunda hipótese é apresentada como "O processo desenvolvido
 para extração do texto das publicações para pesquisa e indexação
@@ -274,8 +281,9 @@ interface irá parecer, enquanto sugerem mudanças
 apropriadas em relação a cores, imagens e estilos.
 
 Também foram utilizadas as técnica de modelagem ER (Entidade Relacionamento)
-por meio da ferramenta pgModeler para o desenvolvimento do banco de dados,
-e testes para verificar o funcionamento do \emph{software} desenvolvido.
+por meio da ferramenta pgModeler, os recursos de Full Text Search do banco dedados
+PostgreSQL para a realização de consultas, e a técnica de testes para verificar
+o funcionamento do \emph{software} desenvolvido.
 
 
 \section{Orçamento} \label{sec:budget}
