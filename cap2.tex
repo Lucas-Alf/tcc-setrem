@@ -20,6 +20,8 @@ atual trabalho.
 \subsection{Cloud Object Storage}
 \subsection{Microsoft .NET}
 
+
+
 \subsection{ReactJS}
 
 Em tradução direta de \cite{Thakkar:2020}, o React ou React.js consiste em uma
@@ -61,6 +63,61 @@ e componentes desenvolvidos pela comunidade.
 
 
 \subsection{Vite}
+
+Conforme o site oficial da ferramenta \cite{Vite:2022}, o Vite pode ser definido
+como sendo uma \emph{build tool} (Ferramenta de Compilação), que possui como objetivo
+prover uma experiência de desenvolvimento mais rápida e leve para projetos
+\emph{web} modernos, podendo ser utilizado em conjunto a diferentes ferramentas de
+desenvolvimento \emph{frontend} como o Vue, React, Preact, Lit, Svelte ou Vanilla.
+
+Dentre os principais diferenciais do Vite, é possível citar a utilização do
+\emph{native ES modules} no lugar das tradicionais ferramentas de empacotamento
+de código como o Webpack, Rollup ou Parcel. Desta forma o Vite é capaz de
+fornecer um ambiente de desenvolvimento com o HMR (\emph{Hot Module Replacement},
+que pode ser definido como a capacidade de atualizar elementos visuais em tela
+durante o desenvolvimento de uma aplicação, sem a necessidade de recarregar a
+página ou recompilar o projeto) extramente rápido, e que tende não ficar lento
+com o crescimento da aplicação.
+
+Na Figura\ref{fig:bundle-based} é demonstrado o funcionamento de um \emph{dev server}
+(servidor de desenvolvimento) baseado no modelo tradicional de empacotamento de código.
+Neste é possível verificar que ao realizar a alteração em um arquivo, o \emph{dev server}
+ira realizar novamente a compilação de todos os arquivos do projeto para gerar o pacote
+de código que será carregado na interface, esta etapa de empacotamento pode levar um tempo
+considerável em projetos grandes, onde existem muitos arquivos para serem empacotados.
+
+\begin{figure}[htb]
+    \caption{Exemplo de \emph{dev server} baseado em empacotamento}
+    \centering
+    \includegraphics[scale=0.33]{img/bundle-based.png}
+    \label{fig:bundle-based}
+    \source{Retirado de \href{https://vitejs.dev/guide/why.html}{vitejs.dev/guide/why.html}}
+\end{figure}
+
+Já a Figura\ref{fig:esm-based} representa o funcionamento de um \emph{dev server}
+baseado no modelo de \emph{Native ES Modules}, onde é possível verificar que
+não existe uma etapa de empacotamento, o código fonte é fornecido diretamente
+ao navegador, que fica responsável por carregar o código a medida do necessário,
+realizado a importação de dependências de formas dinâmica para a página que está
+sendo exibida.
+
+\begin{figure}[htb]
+    \caption{Exemplo de \emph{dev server} baseado em \emph{native ES modules}}
+    \centering
+    \includegraphics[scale=0.4]{img/esm-based.png}
+    \label{fig:esm-based}
+    \source{Retirado de \href{https://vitejs.dev/guide/why.html}{vitejs.dev/guide/why.html}}
+\end{figure}
+
+O Vite foi escolhido como ferramenta de \emph{build tool} para o \emph{frontend}
+do repositório institucional proposto, e será utilizada no lugar da \emph{build tool}
+padrão do React que utiliza o Webpack para realizar o empacotamento de código,
+tendo em vista os benefícios do Vite a longo prazo prevendo o crescimento da aplicação.
+Também vale ressaltar que não é necessário realizar adaptações de código especificas
+para o Vite, sendo possível trocar para outra ferramenta a qualquer momento sem
+grande dificuldades.
+
+
 \subsection{Figma}
 
 \subsection{PostgreSQL}
