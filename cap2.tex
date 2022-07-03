@@ -18,13 +18,55 @@ atual trabalho.
 \section{Ferramentas utilizadas}\label{sec:fundamental}
 \subsection{Cloud Computing}
 \subsection{Cloud Object Storage}
-\subsection{Microsoft .NET}
+\subsection{Microsoft .NET 6}
 
+Em tradução livre de \cite{Akella:2022}, em 2002 a Microsoft anunciou a primeira
+versão do .NET Framework, uma plataforma de desenvolvimento de aplicações
+web e desktop. O .NET Framework oferece vários serviços, incluindo a
+execução de código gerenciado, um vasto conjunto de APIs, gerecimento
+de memoria, um sistema de tipagem comum, e vários frameworks de desenvolvimento
+como o ADO.NET, ASP.NET, WCF, WinForms e WPF (Windows Presentation Framework),
+além do suporte a diferentes linguagens de programação como C\#, F\# e Visual Basic.
+Iniciamento o .NET Framework era distribuído como um instalador a parte, porem
+com o tempo a Microsoft passou a o embutir junto ao sistema operacional Windows,
+sendo o .NET Framework 4.8 a ultima versão lançada.
 
+Todavia, em 2014 a Microsoft anunciou uma implementação \emph{open source} e
+multi plataforma do .NET, denominada de .NET Core, sendo totalmente reescrita
+para ser executada em múltiplas plataformas como o Linux, macOS e Windows.
+O .NET Core é rápido, modular e permite que diferentes versões sejam
+executadas ao mesmo tempo na mesma máquina, sem afetar a aplicação.
+
+Em 2020 após o lançamento de 3 versões do .NET Core (1.0, 2.0 e 3.0), e outras
+versões intermediarias, a Microsoft decidiu por unificar o .NET Framework e o
+.NET Core em uma única plataforma denominada somente de .NET, pulando a
+versão 4.0 do .NET Core para não causar confusões de nomenclatura
+com o antigo .NET Framework 4.8.
+
+\begin{figure}[htb]
+    \caption{Cronograma de lançamento de versões do .NET}
+    \centering
+    \includegraphics[scale=0.18]{img/dotnet-release-schedule.png}
+    \label{fig:dotnet-release-schedule}
+    \source{Retirado de \href{https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core}{https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core}}
+\end{figure}
+
+A Figura\ref{fig:dotnet-release-schedule} demonstra o cronograma de lançamento
+de novas versões do .NET, sendo todas a partir do .NET 3.1 sendo denominas
+apenas de .NET seguido do número da versão. A versão mais recente até a
+realização deste trabalho consiste no .NET 6.0, que possui um ecossistema
+vasto para o desenvolvimento de aplicações web, em nuvem, desktop, IoT
+e mobile.
+
+O .NET 6.0 foi escolhido como plataforma para o desenvolvimento da API do
+repositório institucional proposto, por meio da linguagem de programação C\#,
+visto que consiste em uma plataforma popular, \emph{open source}, e multi
+plataforma, e que possui um grande número de bibliotecas disponíveis 
+por meio do repositório de pacotes Nuget\footnote{https://www.nuget.org/}.
 
 \subsection{ReactJS}
 
-Em tradução direta de \cite{Thakkar:2020}, o React ou React.js consiste em uma
+Em tradução direta de \citep[p. 30]{Thakkar:2020}, o React ou React.js consiste em uma
 biblioteca JavaScript de código aberto, criada em maio de 2013 pelo Facebook,
 sendo utilizada para construção de interfaces de usuário.
 
@@ -79,6 +121,14 @@ durante o desenvolvimento de uma aplicação, sem a necessidade de recarregar a
 página ou recompilar o projeto) extramente rápido, e que tende não ficar lento
 com o crescimento da aplicação.
 
+\begin{figure}[htb]
+    \caption{Exemplo de \emph{dev server} baseado em empacotamento}
+    \centering
+    \includegraphics[scale=0.33]{img/bundle-based.png}
+    \label{fig:bundle-based}
+    \source{Retirado de \href{https://vitejs.dev/guide/why.html}{vitejs.dev/guide/why.html}}
+\end{figure}
+
 Na Figura\ref{fig:bundle-based} é demonstrado o funcionamento de um \emph{dev server}
 (servidor de desenvolvimento) baseado no modelo tradicional de empacotamento de código.
 Neste é possível verificar que ao realizar a alteração em um arquivo, o \emph{dev server}
@@ -87,10 +137,10 @@ de código que será carregado na interface, esta etapa de empacotamento pode le
 considerável em projetos grandes, onde existem muitos arquivos para serem empacotados.
 
 \begin{figure}[htb]
-    \caption{Exemplo de \emph{dev server} baseado em empacotamento}
+    \caption{Exemplo de \emph{dev server} baseado em \emph{native ES modules}}
     \centering
-    \includegraphics[scale=0.33]{img/bundle-based.png}
-    \label{fig:bundle-based}
+    \includegraphics[scale=0.4]{img/esm-based.png}
+    \label{fig:esm-based}
     \source{Retirado de \href{https://vitejs.dev/guide/why.html}{vitejs.dev/guide/why.html}}
 \end{figure}
 
@@ -101,21 +151,13 @@ ao navegador, que fica responsável por carregar o código a medida do necessár
 realizado a importação de dependências de formas dinâmica para a página que está
 sendo exibida.
 
-\begin{figure}[htb]
-    \caption{Exemplo de \emph{dev server} baseado em \emph{native ES modules}}
-    \centering
-    \includegraphics[scale=0.4]{img/esm-based.png}
-    \label{fig:esm-based}
-    \source{Retirado de \href{https://vitejs.dev/guide/why.html}{vitejs.dev/guide/why.html}}
-\end{figure}
-
 O Vite foi escolhido como ferramenta de \emph{build tool} para o \emph{frontend}
 do repositório institucional proposto, e será utilizada no lugar da \emph{build tool}
 padrão do React que utiliza o Webpack para realizar o empacotamento de código,
 tendo em vista os benefícios do Vite a longo prazo prevendo o crescimento da aplicação.
 Também vale ressaltar que não é necessário realizar adaptações de código especificas
 para o Vite, sendo possível trocar para outra ferramenta a qualquer momento sem
-grande dificuldades.
+grandes dificuldades.
 
 
 \subsection{Figma}
