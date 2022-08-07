@@ -168,26 +168,33 @@ grandes dificuldades.
 
 \subsection{PostgreSQL}
 
-Conforme \cite{2017:Carvalho} O PostgreSQL é um sistema gerenciador de banco de dados
-relacional de código aberto, sendo popular e com mais de 15 anos de desenvolvimento ativo,
-possuindo uma arquitetura que entrega confiabilidade, integridade de dados e conformidade
-a padrões. Dentre os principais características, está a facilidade de usar, a segurança,
-grande quantidade de recursos, a confiabilidade e o desempenho.
+Conforme \cite{2017:Carvalho} O PostgreSQL é um Sistema Gerenciador de
+Banco de Dados (SGBD) relacional, de código aberto, possuindo a versão 6.0
+como sua primeira versão oficial liberada em janeiro de 1997.
+Hoje sendo uma alternativa de banco de dados popular, de nível corporativo,
+e com mais de 15 anos de desenvolvimento ativo. O PostgreSQL possui uma
+arquitetura que entrega confiabilidade, integridade, conformidade a padrões,
+desempenho e uma grande quantidade de recursos.
 
 Dentre os seus recursos está o suporte a vários tipos de dados sofisticados,
-como o JSON, XML, objetos geométricos, hierarquias, tags e matrizes. Além de
-permitir novos tipos de dados e funções que podem ser escritos em linguagens suportadas
-como o SQL, C, Python, Peal, TCL e outras. O banco de dados também possui suporte
-a recursos de acompanhamento de \emph{slow query}, criptografia e \emph{full-text search},
-sendo o ultimo utilizado para realizar as buscas por publicações dentro do repositório
-institucional proposto neste trabalho.
+como o JSON, XML, objetos geométricos e geoespaciais, hierarquias, tags e matrizes.
+Além de permitir a inclusão de novos tipos de dados e funções que podem ser
+escritas em linguagens suportadas como o SQL, C, Python, Peal, dentre outras.
+
+Como principal recurso que motivou a escolha do PostgreSQL como banco de dados
+para o repositório institucional proposto neste trabalho, está o suporte ao
+recurso de \emph{full-text search}, que permite uma busca e indexação aprimorada
+por textos de grande tamanho na base de dados, que neste contexto será
+utilizado para armazenar e indexar os artigos e publicações presentes no repositório.
 
 \subsubsection{Full-Text Search}
 
-Conforme a documentação oficial do Postgres\footnote{https://www.postgresql.org/docs/current/textsearch-intro.html}, o recurso de \emph{Full Text Searching}
-prove a capacidade de identificar linguagem natural em documentos que satisfazem
-um critério de busca, podendo de forma opcional ordena-los por relevância aos termos
-pesquisados.
+Em tradução livre de \cite{2022:PostgreSQLFullTextSearch}
+o recurso de \emph{Full Text Search} fornece a capacidade de identificar
+linguagem natural em documentos que satisfazem um critério de busca,
+podendo de forma opcional ordena-los por relevância aos termos pesquisados.
+
+
 
 % \subsubsection{GIN Index}
 
