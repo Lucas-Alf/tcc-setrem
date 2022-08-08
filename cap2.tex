@@ -59,7 +59,7 @@ com o antigo .NET Framework 4.8.
     \source{Retirado de \href{https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core}{https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core}}
 \end{figure}
 
-A Figura\ref{fig:dotnet-release-schedule} demonstra o cronograma de lançamento
+A Figura \ref{fig:dotnet-release-schedule} demonstra o cronograma de lançamento
 de novas versões do .NET, sendo todas a partir do .NET Core 3.1 sendo denominas
 apenas de .NET seguido do número da versão. A versão mais recente até a
 realização deste trabalho consiste no .NET 6.0, que possui um ecossistema
@@ -100,7 +100,7 @@ interface. A sintaxe JSX não é obrigatória, porem é recomendada pelo própri
     \source{Retirado de \href{https://reactjs.org/docs/introducing-jsx.html}{reactjs.org/docs/introducing-jsx.html}}
 \end{figure}
 
-A Figura\ref{fig:exemple-jsx} demonstra um exemplo de código em JSX, onde é
+A Figura \ref{fig:exemple-jsx} demonstra um exemplo de código em JSX, onde é
 utilizado uma função para realizar a formatação de um texto contento um
 nome e sobrenome, que será renderizando na interface dentro de uma
 tag HTML.
@@ -136,7 +136,7 @@ com o crescimento da aplicação.
     \source{Retirado de \href{https://vitejs.dev/guide/why.html}{vitejs.dev/guide/why.html}}
 \end{figure}
 
-Na Figura\ref{fig:bundle-based} é demonstrado o funcionamento de um \emph{dev server}
+Na Figura \ref{fig:bundle-based} é demonstrado o funcionamento de um \emph{dev server}
 (servidor de desenvolvimento) baseado no modelo tradicional de empacotamento de código.
 Neste é possível verificar que ao realizar a alteração em um arquivo, o \emph{dev server}
 ira realizar novamente a compilação de todos os arquivos do projeto para gerar o pacote
@@ -151,7 +151,7 @@ considerável em projetos grandes, onde existem muitos arquivos para serem empac
     \source{Retirado de \href{https://vitejs.dev/guide/why.html}{vitejs.dev/guide/why.html}}
 \end{figure}
 
-Já a Figura\ref{fig:esm-based} representa o funcionamento de um \emph{dev server}
+Já a Figura \ref{fig:esm-based} representa o funcionamento de um \emph{dev server}
 baseado no modelo de \emph{Native ES Modules}, onde é possível verificar que
 não existe uma etapa de empacotamento, o código fonte é fornecido diretamente
 ao navegador, que fica responsável por carregar o código a medida do necessário,
@@ -190,10 +190,51 @@ utilizado para armazenar e indexar os artigos e publicações presentes no repos
 \subsubsection{Full-Text Search}
 
 Em tradução livre de \cite{2022:PostgreSQLFullTextSearch}
-o recurso de \emph{Full Text Search} fornece a capacidade de identificar
-linguagem natural em documentos que satisfazem um critério de busca,
-podendo de forma opcional ordena-los por relevância aos termos pesquisados.
+o recurso de \emph{Full Text Search} ou Pesquisa Textual Completa,
+fornece a capacidade de identificar linguagem natural em documentos
+que satisfazem um critério de busca, podendo de forma opcional ordena-los
+por relevância aos termos pesquisados. Para realizar este tipo de pesquisa,
+são utilizados os conceitos de critério de busca ou \emph{query}, e o
+conceito de similaridade. De forma simplificada é possível definir uma
+\emph{query} como um conjunto de palavras, e a similaridade como sendo a
+frequência que estas palavras sem repetem no documento.
 
+Diferente dos operadores de busca mais comuns presentes em bancos de dados
+relacionais como o \emph{like} e \emph{ilike}, o recurso de \emph{Full Text Search}
+fornece suporte a um contexto linguístico, permitindo por exemplo, a busca por palavras
+derivadas como no caso de \emph{satisfies} e \emph{satisfy} do inglês, algo que
+seria extramente difícil de mapear somente com o uso de expressões regulares. Este recurso
+também fornece capacidade de indexação para uma pesquisa mais rápida, e ranqueamento
+dos resultados para que os resultados mais relevantes apareçam no topo da pesquisa.
+
+Para que este tipo de pesquisa seja possível, o texto presente nos documentos precisam
+passar por uma etapa de pré-processamento, chamado de extração de dados ou \emph{Tokenization},
+onde os textos são convertidos em \emph{tokens} que podem ser separados em diferentes classes,
+como palavras, números, endereços de email, etc. Após este processamento, os \emph{tokens}
+podem ser convertidos em lexemas ou \emph{lexemes}, que são semelhantes aos \emph{tokens},
+porem em um formato normalizado.
+
+Como demonstrado na Figura \ref{fig:ts-vector-exemple} este processo de normalização envolve
+deixar todos o texto em minusculo, remoção de sufixos, pluralidade, e em alguns casos até o
+gênero das palavras, permitindo que em uma única busca seja possível encontrar por todas as
+diferentes variantes de uma palavra. Este processo também elimina as chamadas \emph{stop words},
+palavras comuns que não possuem relevância dentro do texto, e que não precisam ser indexadas,
+como artigos, preposições, pronomes, conjunções, etc.
+
+\begin{figure}[H]
+    \caption{Exemplo de ts\_vector no PostgreSQL}
+    \centering
+    \frame{\includegraphics[scale=0.77]{img/ts_vector_exemple.png}}
+    \label{fig:ts-vector-exemple}
+    \source{Figura do autor}
+\end{figure}
+
+No banco de dados PostgreSQL tais lexemas podem ser armazenados utilizando o tipo de
+dado denominado de \emph{tsvector}, que possui um conjunto próprio de funcionalidades
+para pesquisa textual, sendo o mais comum o operador \emph{@@} que permite a busca por textos
+que contemplem um critério de busca, também existe o suporte a pesquisa com operadores lógicos
+como \emph{and}, \emph{or} e \emph{not}, e a utilização da função \emph{to\_tsquery} para
+converter um texto simples para um \emph{query} de pesquisa.
 
 
 % \subsubsection{GIN Index}
