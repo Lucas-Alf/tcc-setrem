@@ -189,7 +189,7 @@ utilizado para armazenar e indexar os artigos e publicações presentes no repos
 
 \subsubsection{Full-Text Search}
 
-Em tradução livre de \cite{2022:PostgreSQLFullTextSearch}
+Em tradução livre de \cite{2022:PostgreSQL}
 o recurso de \emph{Full Text Search} ou Pesquisa Textual Completa,
 fornece a capacidade de identificar linguagem natural em documentos
 que satisfazem um critério de busca, podendo de forma opcional ordena-los
@@ -207,7 +207,7 @@ seria extramente difícil de mapear somente com o uso de expressões regulares. 
 também fornece capacidade de indexação para uma pesquisa mais rápida, e ranqueamento
 dos resultados para que os resultados mais relevantes apareçam no topo da pesquisa.
 
-Para que este tipo de pesquisa seja possível, o texto presente nos documentos precisam
+Conforme o mesmo autor, para que este tipo de pesquisa seja possível, o texto presente nos documentos precisam
 passar por uma etapa de pré-processamento, chamado de extração de dados ou \emph{Tokenization},
 onde os textos são convertidos em \emph{tokens} que podem ser separados em diferentes classes,
 como palavras, números, endereços de email, etc. Após este processamento, os \emph{tokens}
@@ -236,8 +236,41 @@ que contemplem um critério de busca, também existe o suporte a pesquisa com op
 como \emph{and}, \emph{or} e \emph{not}, e a utilização da função \emph{to\_tsquery} para
 converter um texto simples para um \emph{query} de pesquisa.
 
+\subsubsection{GIN Index}
 
-% \subsubsection{GIN Index}
+Em tradução livre de \cite{2022:PostgreSQL} o termo GIN consiste em uma
+abreviação de \emph{Generalized Inverted Index} ou Índice Generalizado Invertido em
+português, também conhecido pelo nome de Lista Invertida, um tipo de índice de banco
+de dados projetado para casos onde os items a serem armazenados consistem em valores
+compostos, e as pesquisas realizadas devem ser feitas em cada item do conjunto.
+Por exemplo, os items a serem armazenados podem ser documentos de texto, e a pesquisa
+a ser realizada pode ser feita por documentos que contenham uma palavra em específico.
+
+Conforme o mesmo autor o índice GIN armazena um conjunto de pares de chaves (chave e lista
+de ocorrências), onde a lista de ocorrências é um conjuntos de identificadores de linhas
+onde a chave/valor foi encontrada. Cada chave é armazenada somete uma única vez,
+fazendo com que o índice tenha um tamanho muito compacto, e ao realizar a pesquisa
+o índice utilizará o valor chave, no lugar de seu valor real.
+
+Já em tradução de \cite{2011:PostgreSQL}, o índice GIN não apresenta perdas para
+grande parte das consultas, porem sua performance depende de forma logarítmica do
+número de palavras únicas no texto. Em comparação ao índice GiST (Generalized Search Tree)
+que pode ser utilizado por diferentes tipos de dados, o índice GIN apenas pode ser utilizado
+em dados do tipo \emph{tsvector}, e alguns quesitos em reação ao desempenho devem ser considerados
+ao trabalhar com este tipo de índice.
+
+Como por exemplo segundo o mesmo autor, o índice GIN pode apresentar uma consulta
+até 3 vezes mais rápidas que o índice GiST, porem o tempo necessário para sua indexação
+pode ser até 3 vezes mais longo. Os indices GIN podem ser mais lentos
+de atualizar (cerca de 10 vezes mais lentos do que os índices GiST), se os recursos de
+atualização rápida de indices estiverem desabilitados, e o tamanho ocupado pelo índice
+GIN pode ser de duas a três vezes maior do que o índice GiST.
+
+O índice do tipo GIN foi escolhido para realizar a indexação do texto das publicações
+presentes no repositório institucional proposto, de forma a converter o texto das
+publicações em um campo do tipo \emph{tsvector} que pode ser indexado, permitindo
+a utilizando das funções de \emph{full-text search} embutidas no banco de dados PostgreSQL
+de uma forma rápida e eficiente.
 
 \section{Sistemas Relacionados}\label{sec:rs}
 No Quadro 3 é apresentado um resumo de sistemas relacionados
