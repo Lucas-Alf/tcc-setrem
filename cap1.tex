@@ -1,8 +1,8 @@
 \chapter{Plano de Estudo e Pesquisa} \label{chap:ResearchPlan}
 
 \section{Tema} \label{sec::Theme}
-Desenvolvimento de um repositório institucional de pesquisas acadêmicas
-baseado em nuvem.
+Desenvolvimento de um \emph{software} de repositório institucional de
+pesquisas acadêmicas preparado para ambientes baseados em nuvem.
 
 \subsection{Delimitação do Tema} \label{subsec::ThemeDelimitation}
 
@@ -30,18 +30,12 @@ de publicações e correções por parte dos orientadores em uma única platafor
 
 \subsection{Objetivos Específicos}
 \begin{enumerate}
-    \item Explorar ferramentas existentes de repositório acadêmico.
-    \item Pesquisar sobre trabalhos e artigos relacionados.
-    \item Pesquisar sobre formas de armazenamento de documentos em nuvem.
-    \item Investigar mecanismos de busca e análise textual de documentos. (Ex. ElasticSearch e Full Text Search).
-    \item Elicitar os requisitos para o desenvolvimento do repositório acadêmico.
-    \item Definir as tecnologias que serão utilizadas para o desenvolvimento (Ex: banco de dados, linguagens e frameworks).
-    \item Desenvolver um dataset de publicações acadêmicas.
-    \item Desenvolver uma aplicação web de repositório acadêmico.
+    \item Explorar ferramentas existentes de repositório acadêmico e pesquisar sobre trabalhos e artigos relacionados.
+    \item Pesquisar sobre formas de armazenamento de documentos em nuvem e mecanismos de busca e análise textual de documentos.
+    \item Elicitar os requisitos para o desenvolvimento do repositório acadêmico e definir as tecnologias que serão utilizadas para o desenvolvimento (Ex: banco de dados, linguagens e frameworks).
+    \item Desenvolver uma aplicação web de repositório acadêmico, e popular o banco de dados com um \emph{dataset} de publicações acadêmicas.
     \item Realizar testes no repositório acadêmico desenvolvido, verificando o desempenho da aplicação em relação ao crescimento da quantidade de registros publicados na plataforma.
-
 \end{enumerate}
-
 
 \section{Justificativa}\label{sec:justification}
 
@@ -105,46 +99,38 @@ da instituição.
 
 \section{Problema} \label{sec::Problem}
 
-Como problema, foram ressaltados dois pontos principais que motivaram a
-escolha do tema desta pesquisa, sendo o primeiro a necessidade de reunir
-as publicações acadêmicas produzidas dentro de instituições de ensino
-superior em um repositório institucional, que forneça rápido acesso às
-publicações científicas produzidas dentro da instituição, tanto de forma
-interna para os estudantes da instituição, quanto de forma externa caso
-a instituição opte por disponibilizar o seu acervo de forma pública.
+Para a escolha do problema desta pesquisa foi ressaltado como sendo
+o principal fator motivador, a necessidade de reunir as publicações acadêmicas
+produzidas dentro de instituições em um repositório institucional,
+que forneça rápido acesso às publicações científicas produzidas dentro da
+instituição, tanto de forma interna para os estudantes da instituição,
+quanto de forma aberta ao publico em geral.
 
-Já o segundo ponto, envolve a forma como ocorre o processo de publicação,
-correção e revisão por parte dos orientadores, que em geral envolve a
-troca de vários emails entre os orientadores e os orientandos,
-processo o qual poderia ser melhorado por meio de um repositório
-acadêmico que suporte um esquema de publicação de revisões e correções.
-
-Levando em consideração estes pontos, o problema desta pesquisa
-foi definido como: Como projetar um repositório de trabalhos
-acadêmicos baseado em serviços de nuvem, que envolva o processo
-de correções e envio de revisões das publicações dentro
-da própria plataforma?
+Levando em consideração este ponto, o problema desta pesquisa
+foi definido: Como projetar um \emph{software} de repositório
+institucional de pesquisas acadêmicas, preparado para
+operar em ambientes baseado em nuvem?
 
 \section{Hipóteses} \label{sec::Hypothesis}
 \begin{enumerate}
+
+    \item É possível manter um ambiente de infraestrutura em nuvem
+          contendo os serviços de \emph{backend}, \emph{frontend}, banco de dados
+          e armazenamento das publicações com um orçamento máximo de R\$ 500,00
+          por mês.
+
     \item O recurso de Full Text Search do banco de dados PostgreSQL
           pode ser utilizado como uma alternativa viável para realizar
           as consultas por publicações dentro do repositório acadêmico
-          (menos de 5 segundos por consulta), mesmo em bases de dados
-          com mais de 30 mil publicações.
+          proposto, (menos de 5 segundos por consulta), mesmo em bases de
+          dados com mais de 30 mil publicações.
 
     \item O processo desenvolvido para extração do texto das publicações
-          para pesquisa e indexação é rápido o suficiente para não
+          durante o auto arquivamento é rápido o suficiente para não
           necessitar de processamento em segundo plano (menos de 5 segundos),
           mesmo em publicações com mais de 200 páginas.
 
-    \item É possível manter um ambiente em nuvem contendo os serviços
-          de backend, frontend, banco de dados e armazenamento das
-          publicações em nuvem, com um orçamento máximo de R\$ 500,00
-          por mês.
-
 \end{enumerate}
-
 
 \section{Metodologia} \label{sec:Methodology}
 
@@ -177,7 +163,7 @@ Para o desenvolvimento deste trabalho, foram utilizadas as abordagens
 dedutiva e quantitativa, a primeira abordagem foi utilizada
 de forma a utilizar o raciocínio lógico sobre pesquisas e repositórios
 acadêmicos já existes, para melhor compreender o escopo da pesquisa,
-e assim propor soluções mais adequadas ao problema.
+e assim propor soluções adequadas ao problema.
 
 Já a segunda abordagem foi utilizada para mensurar e analisar
 os dados numéricos referentes ao tempo de consultas e arquivamento
@@ -250,12 +236,12 @@ mesma pesquisa com mais de 200 páginas diversas vezes, e mensurar
 o tempo médio para conclusão do processo.
 
 Já a terceira hipótese, consiste em "É possível manter um ambiente
-em nuvem contendo os serviços de backend, frontend, banco de dados
-e armazenamento das publicações em nuvem, com um orçamento máximo
-de R\$ 500,00 por mês". Esta hipótese pode ser validada por meio
-da comparação dos preços de diferentes provedores de nuvem, com
-base nos requisitos mínimos estipulados para o repositório
-acadêmicos proposto.
+de infraestrutura em nuvem contendo os serviços de backend,
+frontend, banco de dados e armazenamento das publicações,
+com um orçamento máximo de R\$ 500,00 por mês". Esta hipótese
+pode ser validada por meio da comparação dos preços de diferentes
+provedores de nuvem, com base nos requisitos mínimos estipulados
+para o repositório acadêmicos proposto.
 
 \subsection{Técnicas}
 
@@ -279,11 +265,10 @@ interessadas ou \emph{Stakeholders} do projeto possam verificar como a
 interface irá parecer, enquanto sugerem mudanças
 apropriadas em relação a cores, imagens e estilos.
 
-Também foram utilizadas as técnica de modelagem ER (Entidade Relacionamento)
-por meio da ferramenta pgModeler, os recursos de Full Text Search do banco dedados
-PostgreSQL para a realização de consultas, e a técnica de testes para verificar
+Também foram utilizadas as técnicas de análise estatística
+e comparativa para realizar a analise de preços em diferentes
+ambientes de nuvem, e a técnica de testes para verificar
 o funcionamento do \emph{software} desenvolvido.
-
 
 \section{Orçamento} \label{sec:budget}
 
@@ -320,12 +305,13 @@ representar a previsão do tempo necessário para realização da pesquisa.
         \multicolumn{1}{|c|}{}                                      & \multicolumn{7}{c|}{\textbf{2022}}                                                                                                                                                                   \\ \cline{2-8}
         \multicolumn{1}{|c|}{\multirow{-2}{*}{\textbf{Atividades}}} & \textbf{Mai}                       & \textbf{Jun}             & \textbf{Jul}             & \textbf{Ago}             & \textbf{Set}             & \textbf{Out}             & \textbf{Nov}             \\ \hline
         Desenvolvimento do projeto                                  & \cellcolor[HTML]{000000}           & \cellcolor[HTML]{000000} &                          &                          &                          &                          &                          \\ \hline
-        Entrega e validação do projeto                              &                                    & \cellcolor[HTML]{000000} & \cellcolor[HTML]{C0C0C0} &                          &                          &                          &                          \\ \hline
-        Organização de Dataset de trabalhos acadêmicos              &                                    &                          & \cellcolor[HTML]{C0C0C0} &                          &                          &                          &                          \\ \hline
-        Desenvolvimento de protótipos                               &                                    &                          & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} &                          &                          &                          \\ \hline
-        Desenvolvimento do repositório acadêmico                    &                                    &                          & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} &                          \\ \hline
-        Realização de testes no repositório acadêmico               &                                    &                          &                          & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} \\ \hline
-        Documentação dos resultados                                 &                                    &                          &                          & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} \\ \hline
+        Entrega e validação do projeto                              &                                    & \cellcolor[HTML]{000000} &                          &                          &                          &                          &                          \\ \hline
+        Desenvolvimento de requisitos funcionais                    &                                    & \cellcolor[HTML]{000000} &                          &                          &                          &                          &                          \\ \hline
+        Desenvolvimento de protótipos                               &                                    & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} &                          &                          &                          &                          \\ \hline
+        Desenvolvimento do repositório acadêmico                    &                                    &                          & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} &                          \\ \hline
+        Organização de Dataset de trabalhos acadêmicos              &                                    &                          &                          &                          & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} &                          \\ \hline
+        Realização de testes no repositório acadêmico               &                                    &                          &                          &                          &                          & \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} \\ \hline
+        Documentação dos resultados                                 &                                    &                          &                          &                          &                          &                          & \cellcolor[HTML]{C0C0C0} \\ \hline
         Entrega do Relatório Final                                  &                                    &                          &                          &                          &                          &                          & \cellcolor[HTML]{C0C0C0} \\ \hline
         Apresentação do Relatório Final                             &                                    &                          &                          &                          &                          &                          & \cellcolor[HTML]{C0C0C0} \\ \hline
     \end{tabular}
