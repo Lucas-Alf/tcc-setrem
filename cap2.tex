@@ -77,7 +77,72 @@ além de vincular a ideia de que repositórios institucionais atuam
 sobre a visibilidade e prestigio da instituição.
 
 \subsection{Padrão Dublin Core para metadados descritivos}
-Descrever...
+
+Em tradução livre de \cite{2003:Caplan}
+o padrão \emph{Dublin Core Metadata Element Set} ou somente \emph{Dublin Core}
+pode ser definido como um esquema de propósito geral, utilizado para a descrição
+de recursos e objetos na internet. O padrão consiste em um conjunto de 50
+elementos, contendo ao menos um identificador e uma descrição de sua definição.
+
+Já em tradução de \cite{2018:Banerjee} a história do padrão Dublin Core
+remonta a segunda edição da \emph{International WWW Conference} em 1994.
+Surgindo de uma discussão sobre a dificuldade existente no período em
+encontrar materiais presentes na internet.
+
+A partir desta discussão,
+em 1995 em Dublin, Ohio, a OCLC (\emph{Online Computer Library Center}) e a
+NCSA (\emph{National Center of Supercomputers Applications}) lideraram
+em conjunto um \emph{workshop} que foi chamado de \emph{OCLC/NCSA Metadata Workshop},
+tendo como objetivo decidir quais elementos seriam necessários para
+promover a melhor encontrabilidade de documentos na internet, explorar
+soluções sobre como criar mecanismos que seriam flexíveis para publicações
+realizadas na internet no passado, presente e futuro, e como promover
+que tais soluções sejam utilizadas caso já existam.
+
+Neste encontro, os participantes entraram em acordo sobre um conjunto
+elementos descritivos, dos quais 50 destes termos poderiam ser
+virtualmente aplicados a qualquer recurso presente na internet até
+o momento. Destes 50 termos, surgiu a iniciativa do padrão Dublin Core.
+
+\begin{table}[H]
+    \captionsetup{justification=centering}
+    \caption{Exemplo de elementos do Dublin Core}
+    \label{table:dublin-core-element-exemple}
+    \centering
+    \resizebox{1.0\textwidth}{!}{% 
+        \begin{tabular}{|p{3cm}|p{14cm}|}
+            \hline
+            \textbf{Identificador} & \textbf{Definição}                                                     \\ \hline
+            \emph{Title}           & Nome dado ao recurso.                                                  \\ \hline
+            \emph{Creator}         & Entidade responsável pela criação do conteúdo do recurso.              \\ \hline
+            \emph{Subject}         & Assunto do conteúdo do recurso.                                        \\ \hline
+            \emph{Description}     & Descrição do conteúdo do recurso.                                      \\ \hline
+            \emph{Publisher}       & Entidade responsável por tornar o recurso disponível.                  \\ \hline
+            \emph{Contributor}     & Entidade repensável por realizar contribuições ao conteúdo do recurso. \\ \hline
+            \emph{Date}            & Data associada a um evento do ciclo de vida do recurso.                \\ \hline
+            \emph{Type}            & A natureza ou gênero do conteúdo do recurso.                           \\ \hline
+            \emph{Format}          & O formato físico ou digital do recurso.                                \\ \hline
+            \emph{Identifier}      & O identificador único dado ao recurso dentro de um contexto.           \\ \hline
+            \emph{Source}          & Uma referencia ao recurso ao qual o presente recurso é derivado.       \\ \hline
+            \emph{Language}        & O idioma em qual o conteúdo do recurso foi escrito.                    \\ \hline
+            \emph{Relation}        & Uma referencia a um recurso relacionado.                               \\ \hline
+            \emph{Coverage}        & A extensão ou escopo do conteúdo do recurso.                           \\ \hline
+        \end{tabular}%
+    }
+
+    \source{Traduzido de \citep[p. 77]{2003:Caplan}}
+\end{table}
+
+O Quadro \ref{table:dublin-core-element-exemple} apresenta um exemplo de
+elementos presentes no padrão Dublin Core, sendo todos os elementos opcionais
+e passiveis de repetição. O esquema em si é independente de um formato em especifico, sendo
+possível apresenta-lo em diferentes formatos como XML e JSON.
+
+Originalmente, o esquema foi produzido como um método para descrição de
+documentos na internet, como em \emph{websites}, de forma a utilizar de
+\emph{meta tags} presentes no cabeçalho dos documentos. Tais \emph{tags}
+podem ser facilmente utilizadas por ferramentas de pesquisa para explorar
+e indexar documentos.
 
 \subsection{Open Archival Information System (OAIS)}
 Descrever...
@@ -346,7 +411,7 @@ a utilizando das funções de \emph{full-text search} embutidas no banco de dado
 de uma forma rápida e eficiente.
 
 \section{Sistemas Relacionados}\label{sec:rs}
-No Quadro 3 é apresentado um resumo de sistemas relacionados
+No Quadro \ref{table:related-systems} é apresentado um resumo de sistemas relacionados
 a esta pesquisa, contendo o nome do sistema, ano de lançamento, tecnologias,
 empresa mantenedora e licença, e site de acesso.
 
@@ -355,6 +420,7 @@ empresa mantenedora e licença, e site de acesso.
         \captionsetup{justification=centering}
         \caption{Sistemas Relacionados}
         \centering
+        \label{table:related-systems}
         \setlength\extrarowheight{-1pt}
         \resizebox{1.58\textwidth}{!}{% 
             \begin{tabular}{|p{4cm}|p{2.5cm}|p{4cm}|p{7cm}|p{2cm}|p{7cm}|}
@@ -1058,7 +1124,7 @@ acadêmicos de acesso aberto podem democratizar o acesso aos materiais de
 pesquisa, e remover barrerias impostas pelos valores e assinaturas
 cobradas por editoras.
 
-No Quadro 4 é apresentado um resumo dos trabalhos relacionados citados
+No Quadro \ref{table:related-works} é apresentado um resumo dos trabalhos relacionados citados
 nesta pesquisa, contendo o autor, titulo, objetivo, metodologia e resultados
 de cada trabalho.
 
@@ -1068,6 +1134,7 @@ de cada trabalho.
     \begin{table}[H]
         \captionsetup{justification=centering}
         \caption{Trabalhos Relacionados}
+        \label{table:related-works}
         \centering
         \setlength\extrarowheight{-1pt}
         \resizebox{1.58\textwidth}{!}{% 
