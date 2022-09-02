@@ -145,7 +145,68 @@ podem ser facilmente utilizadas por ferramentas de pesquisa para explorar
 e indexar documentos.
 
 \subsection{Open Archival Information System (OAIS)}
-Descrever...
+
+Em tradução livre de \cite{2007:Borghoff} o OAIS
+(\emph{Open Archival Information System}) consiste em um
+modelo referencia para a preservação a longo prazo de publicações
+digitais. Este modelo possui como objetivo trazer clareza a termos
+básicos sobre a preservação a longo prazo, e identificar os processos
+chave correspondentes, sendo considerado uma base comum para a troca
+internacional de ideias e experiencias na área.
+
+Conforme o mesmo autor, em 1995 o \emph{International Organization for Standardization} (ISO)
+direcionou ao \emph{Consultive Committee for Space Data Systems} (CCSDS)
+o desenvolvimento deste padrão. O CCSDS consiste em um comité subordinado
+a NASA que foi fundado em 1982 por varias agencias espaciais, com o objetivo
+de simplificar a troca de pesquisas espaciais. Após vários anos de pesquisa,
+o CCSDS apresentou em maio de 1999 a primeira versão deste padrão, que ainda
+passaria por diversas revisões, sendo a revisão de fevereiro de 2003
+aceita como o padrão ISO (14721:2003) (ISO 2003a) após revisado para a (ISO 14721:2012).
+
+\begin{figure}[H]
+    \caption{Fluxo de processo do modelo de referencia OAIS}
+    \label{fig:oais-reference-model}
+    \centering
+    \frame{\includegraphics[scale=0.95]{img/oais-reference-model.png}}
+    \source{Retirado de \cite[p. 25]{2007:Borghoff}}
+\end{figure}
+
+A Figura \ref{fig:oais-reference-model} representa o fluxo do processo
+realizado no modelo de referencia OAIS, neste fluxo são realizadas as
+etapas de (\emph{Ingest}) (Ingestão), \emph{Archival Storage} (Armazenamento de arquivo),
+\emph{Data Management} (Gestão de dados), \emph{Administration} (Administração),
+\emph{Preservation Planning} (Planejamento de preservação) e \emph{Access} (Acesso).
+
+O processo de ingestão recebe um SIP (\emph{Submission Information Package}),
+que consiste no objeto digital a ser armazenado junto aos seus metadados, e o
+prepara para os processos de armazenamento e administração, transformando o SIP
+em um AIP (Archival Information Package), que contem os metadados descritivos,
+dados técnicos, informações do projeto, direitos de acesso e uso, e
+até mesmo pode conter informações referentes a verificação por virus no arquivo.
+
+Após o processo de ingestão, o AIP gerado irá entrar no processo de
+Armazenamento de arquivo, que é responsável por distribuir o AIP a
+diferentes formas de armazenamento, sendo também responsável
+por garantir a integridade dos dados, e a permitir a reconstrução dos AIPs em caso
+de catástrofes.
+
+O processo de gestão de dados possui como finalidade realizar o gerenciamento
+das informações descritivas, normalmente estes dados são armazenados em um
+banco de dados, e precisam ser atualizados e administrados. Este processo
+também é repensável pela execução das pesquisas pelos arquivos armazenados.
+
+O processo de administração executa rotinas de regras de negócio sobre o arquivo a
+ser armazenado, sendo repensável por verificar os pré-requisitos para o
+envio dos documentos, e se os dados presentes no SIP atendem os padrões
+pré definidos.
+
+A etapa de acesso consiste na interface gráfica que permite o usuário
+recuperar os arquivos. Já a etapa de planejamento de preservação
+envolve as questões referentes a estrategia utilizada para manter a preservação
+dos arquivos (que deve ser regularmente atualizada), englobando o monitoramento
+regular por falhas nos discos de armazenamento, verificação de integridade,
+e outras tarefas deste gênero.
+
 
 \section{Processos}\label{sec:process}
 
