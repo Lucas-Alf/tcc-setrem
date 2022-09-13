@@ -224,8 +224,42 @@ Descrever...
 \subsection{Cloud Computing}
 Descrever...
 
-\subsection{Cloud Object Storage}
-Descrever...
+\subsection{Object Storage}
+
+Em tradução livre de \cite{2020:Patil} o \emph{Object Storage} também conhecido
+como \emph{Object Based Storage} (OBS), consiste em uma tecnologia de armazenamento
+de dados, sendo uma progressão lógicas aos conceitos de \emph{Block Storage}
+e \emph{File Storage}.
+
+Dentre as suas premissas, o \emph{Object Storage} surgiu com o objetivo
+resolver uma série de problemas e desafios encontrados em outros modelos de
+armazenamento, como por exemplo a dificuldade de realizar o gerenciamento
+de dados em grande escala, a complexidade em gerenciar os \emph{namespaces}
+em escala, e a aplicação de esquemas de segurança complexos sem a necessidade
+de envolvimento humano.
+
+Conforme o mesmo autor, dentre as suas características são utilizados de três
+conceitos base para realizar o armazenamento e referencia aos dados, sendo
+o primeiro o \emph{Data} que consiste no conteúdo que será armazenado,
+podendo ser no formato de um texto, binário, ou qualquer formato conhecido.
+Como segundo conceito está o \emph{Metadata}, que é composto por uma série de
+atributos descritivos do conteúdo que será armazenado. E como ultimo conceito está
+o \emph{Unique Identifier} (UUID), que consiste em uma chave única utilizada
+para referenciar o objeto, podendo ser utilizada para realizar a manipulação ou
+recuperação dos dados.
+
+Dentre os demais conceitos utilizados no \emph{Object Storage}, estão os
+\emph{Buckets} e as \emph{Access Control Lists} (ACLs), sendo um \emph{Bucket}
+uma abstração lógica do local onde os dados serão armazenados, não estando
+realmente endereçado a um conjunto físico de discos, e podendo inclusive
+estar espalhado por diferente regiões pelo mundo. Já as ACLs consistem em
+um conjunto de regras de segurança e acesso, que podem ser vinculadas
+tanto a objetos individuais quanto a \emph{Buckets} inteiros.
+
+Neste modelo de armazenamento, o acesso aos dados arquivos é realizado por meio
+de uma interface REST, sobre o protocolo HTTP, por meio dos métodos \emph{PUT},
+\emph{GET}, \emph{DELETE} e \emph{LIST}, permitindo a recuperação de qualquer
+dado a qualquer momento por meio de seu identificador único (UUID).
 
 \subsection{Microsoft .NET 6}
 
