@@ -222,7 +222,102 @@ Descrever...
 \section{Tecnologias}\label{sec:technology}
 
 \subsection{Cloud Computing}
-Descrever...
+Em tradução de \cite{2019:Sehgal} o NIST
+(\emph{National Institute of Standards and Technology}) dos Estados Unidos
+define o termo \emph{Cloud Computing} como sendo "um modelo para permitir
+o acesso em rede de forma onipresente, convivente e sob-demanda
+a um conjunto de recursos computacionais configuráveis (como redes,
+servidores, armazenamento, aplicativos e serviços) que podem ser
+rapidamente provisionados e liberados com o mínimo de esforço do provedor
+de serviços".
+
+Em sua definição o NIST apresenta que este modelo é composto
+por cinco características essenciais, três modelos de serviço e
+quatro modelos de implantação. Dentre as características essenciais
+estão:
+\begin{enumerate}
+    \item \emph{On-demand self-service}: capacidade do consumidor
+          por alterar os recursos de computação conforme o necessário,
+          sem a necessidade de intervenção do prestador de serviço.
+
+    \item \emph{Broad network access}: os recursos estão disponíveis
+          em rede, e podem ser acessados por meio de manismos padrões por
+          diferentes dispositivos de diversas plataformas (Ex: \emph{smartphones},
+          \emph{laptops}, \emph{tablets} e \emph{workstations}).
+
+    \item \emph{Resource pooling}: os recursos computacionais do provedor
+          de serviços podem ser disponibilizados a múltiplos consumidores
+          por meio de um modelo \emph{multi-tenant}, onde diferentes recursos
+          físicos e virtuais são realocados conforme a demanda do consumidor.
+
+    \item \emph{Rapid elasticity}: os recursos computacionais são distribuídos
+          de forma elástica, podendo automaticamente ser incrementados ou reduzidos
+          conforme a demanda. Para o consumidor final os recursos computacionais
+          aparentam ser ilimitados, e podem ser escalados a qualquer quantidade
+          a qualquer momento.
+
+    \item \emph{Measured service}: Os recursos computacionais são monitorados,
+          controlados, e reportados, de forma a prover transparência tanto para o provedor
+          de serviços, quando para o consumidor. A utilização dos recursos computacionais
+          é controlada e optimizada com base nas métricas coletadas sobre algum nível de abstração.
+\end{enumerate}
+
+
+A Figura \ref{fig:cloud-computing-services} representa os três
+diferentes modelos de serviços de \emph{Cloud Computing} apresentados pelo NIST.
+
+\begin{figure}[H]
+    \caption{Modelos de serviço de \emph{Cloud Computing}}
+    \centering
+    \frame{\includegraphics[scale=1.12]{img/cloud-computing-services.png}}
+    \label{fig:cloud-computing-services}
+    \source{Retirado de \citep[p. 51]{2019:Sehgal}}
+\end{figure}
+
+\begin{enumerate}
+    \item \emph{Software as a Service (SaaS)}: Capacidade provida ao consumidor
+          de utilizar de aplicações que estão sendo executadas em uma infraestrutura
+          em nuvem. O consumidor não possui acesso ou controle a infraestrutura em nuvem,
+          apenas com a possibilidade de realizar configuração limitadas e especificas
+          a aplicação em execução.
+
+    \item \emph{Platform as a Service (PaaS)}: Capacidade provida ao consumidor
+          de hospedar suas próprias aplicações, desenvolvidas ou adquiridas, utilizando
+          de linguagens, bibliotecas, serviços ou ferramentas que são suportadas pelo
+          provedor de nuvem. Neste modelo o consumidor não possui controle sobre a infraestrutura
+          de nuvem, porem possui controle sobre a aplicação que está sendo hospedada.
+
+    \item \emph{Infrastructure as a Service (IaaS)}: Capacidade provida ao consumidor
+          de operar sobre os recursos de processamento, armazenamento, rede e outros
+          recursos computacionais, podendo de forma arbitrária hospedar e executar
+          \emph{softwares} incluindo sistemas operacionais. Neste modelo o consumidor
+          não possui controle a infraestrutura física da nuvem, porem possui controle
+          sobre o sistema operacional que deseja utilizar, recursos de armazenamento,
+          e até controle limitado a recursos de rede, como \emph{firewalls}.
+\end{enumerate}
+
+Já referente aos quatro modelos de implantação de nuvem definidos pelos NIST, é possível citar:
+\begin{enumerate}
+    \item \emph{Private cloud}: a infraestrutura de nuvem é provida para uso
+          exclusivo de uma única organização, que pode possuir vários consumidores.
+          Esta infraestrutura é adquirida, gerenciada e operada pela própria organização,
+          um terceiro, ou uma combinação de ambos.
+
+    \item \emph{Community cloud}: a infraestrutura de nuvem é provida para uso
+          exclusivo de uma comunidade especifica de consumidores possuem preocupações
+          ou necessidades compartilhadas (como quesitos ou politicas de segurança).
+          A infraestrutura é adquirida, gerenciada e operada por um ou mais membros
+          da comunidade, um terceiro, ou uma combinação de ambos.
+
+    \item \emph{Public cloud}: a infraestrutura de nuvem é provida para o uso
+          livre do público em geral, podendo ser adquirida, gerenciada e operada por
+          uma empresa, ou uma organização acadêmica ou governamental.
+
+    \item \emph{Hybrid cloud}: a infraestrutura de nuvem é composta por dois ou mais
+          provedores de nuvem distintos (\emph{private}, \emph{community} ou \emph{public}),
+          sendo unificados por uma tecnologia aberta ou proprietária que permite a
+          portabilidade das aplicações.
+\end{enumerate}
 
 \subsection{Object Storage}
 
