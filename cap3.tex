@@ -1,55 +1,62 @@
 % Chapter 3
 \chapter{Resultados}\label{chap:Results}
 
-Os experimentos irão nesta seção.
+Neste capítulo são apresentados os resultados do trabalho desenvolvido,
+apresentando a criação do repositório institucional proposto, desde a
+sua concepção, \emph{backlog} do produto, protótipos, resultado final
+e validação das hipóteses.
 
-\section{Apresentação da Empresa e Histórico}
+\section{Concepção do Repositório Institucional}
+
+A concepção do repositório institucional proposto foi realizada com base
+nos desafios e problemas relatados nos trabalhos relacionados, e na análise
+dos pontos positivos e negativos encontrados em outros sistemas de repositório
+institucional existentes.
+
+Como um dos principais diferenciais do repositório proposto, é que desde o
+inicio de seu desenvolvimento ele foi projetado para ser facilmente implantado
+e executado em ambientes baseados em nuvem, sendo assim todas as suas configurações
+podem ser realizadas por meio de variáveis de ambiente, que em geral podem ser
+facilmente definidas pelo próprio painel ou \emph{dashboard} fornecido pelo
+provedor de nuvem. A ideia é nunca precisar acessar remotamente a máquina
+em que a aplicação está sendo executada para realizar qualquer tipo de configuração.
+
+Outro ponto de diferença é que o repositório proposto somente aceita arquivos no
+formato PDF, visando mitigar problemas relacionados a formatação do documento, e
+buscando garantir que o usuário ao acessar as publicações, visualize
+o documento da mesma forma que o autor originalmente a escreveu. Esta redução
+do escopo de formatos de arquivos aceitos pelo repositório, também garante que
+todas as publicações estejam normalizadas em um mesmo formato, permitindo a
+utilização de técnicas mais especializadas para a extração de texto dos documentos.
+
+Para realizar a escolha do nome e identidade visual do repositório, foram buscados
+por termos que remetessem a "Repositório", "Acesso Aberto'' e "Pesquisa", chegando
+a escolha do nome RESOAR, uma sigla em inglês para \emph{Research Open Access Repository}.
+A sigla "OAR'' que remete a \emph{Open Access Repository} já é baste difundida, e
+pode ser encontrada em nomes como o OpenDOAR\footnote{https://v2.sherpa.ac.uk/opendoar/} e
+ROARMAP\footnote{https://roarmap.eprints.org/}.
+
+\begin{figure}[H]
+    \caption{Identidade visual do repositório}
+    \centering
+    \frame{\includegraphics[scale=0.0558]{img/resoar.png}}
+    \label{fig:resoar}
+    \source{Do próprio autor}
+\end{figure}
+
+A Figura \ref{fig:resoar} apresenta a logo ou identidade visual do repositório,
+que foi elaborada por um designer contratado da região de Três de Maio - RS,
+que desenvolveu tanto a identidade visual quanto os primeiros protótipos do repositório.
+
+Em sua composição é possível perceber um simbolo de lupa embutido na primeira letra "R''
+representando a pesquisa. A cor padrão da logo foi escolhida como o laranja com
+o código HEX \#ff5400, porem o simbolo também pode ser exibido em outras variações
+em preto e branco, escala de cinza ou outras cores.
 
 
-\section{Desenvolvimento} \label{sec:dev}
+\section{Backlog do produto} \label{sec:dev}
 
-
-\lstlistingname~\ref{lst:python-code} apresenta um exemplo de código em Python.
-
-\begin{lstlisting}[numbers=left, language=Python, style=mycode, caption={Exemplo de código em Python.}, label={lst:python-code}]
-import numpy as np
- 
-def incmatrix(genl1,genl2):
-    m = len(genl1)
-    n = len(genl2)
-    M = None #to become the incidence matrix
-    VT = np.zeros((n*m,1), int)  #dummy variable
- 
-    #compute the bitwise xor matrix
-    M1 = bitxormatrix(genl1)
-    M2 = np.triu(bitxormatrix(genl2),1) 
- 
-    for i in range(m-1):
-        for j in range(i+1, m):
-            [r,c] = np.where(M2 == M1[i,j])
-            for k in range(len(r)):
-                VT[(i)*n + r[k]] = 1;
-                VT[(i)*n + c[k]] = 1;
-                VT[(j)*n + r[k]] = 1;
-                VT[(j)*n + c[k]] = 1;
- 
-                if M is None:
-                    M = np.copy(VT)
-                else:
-                    M = np.concatenate((M, VT), 1)
- 
-                VT = np.zeros((n*m,1), int)
- 
-    return M
-\end{lstlisting}
-
-\lstlistingname~\ref{lst:cpp-code} apresenta um código em C++.
-
-% this is an example including from a file
-\lstinputlisting[numbers=left,language=C++,style=mycode,caption={Exemplo de código em C++.},label={lst:cpp-code}]{code/code-example.cpp}
-
-
-\section{Experimentos} \label{sec:exp}
+\section{Protótipos} \label{sec:exp}
 
 
 
