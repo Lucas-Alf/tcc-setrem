@@ -17,7 +17,7 @@ como React e Vite para o frontend, Microsoft .NET 6.0 para a criação
 de APIs, PostgreSQL como banco de dados, e recursos de armazenamento baseados em
 nuvem como o Amazon S3 ou Digital Ocean Spaces para o armazenamento de arquivos.
 
-O desenvolvimento deste projeto de pesquisa foi realizado durante o período de
+O desenvolvimento deste relatório de pesquisa foi realizado durante o período de
 maio a dezembro de 2022, pelo acadêmico Lucas Machado Alf do curso bacharelado
 em Sistema de Informação na Sociedade Educacional Três de Maio – SETREM.
 
@@ -89,11 +89,11 @@ a preservação digital dos materiais produzido, evitando assim a perda
 ou esquecimento da produção acadêmica e cientifica realizada dentro
 da instituição.
 
-% Com o aprendizado adquirido durante o desenvolvimento deste trabalho
-% de conclusão de curso, foi possível realizar o aprofundamento do
-% conhecimento nas áreas de tecnologia da informação, nuvem computacional,
-% repositórios acadêmicos, gestão de conhecimento, linguagens de programação
-% e demais tecnologias utilizadas durante o desenvolvimento da pesquisa.
+Com o aprendizado adquirido durante o desenvolvimento deste trabalho
+de conclusão de curso, foi possível realizar o aprofundamento do
+conhecimento nas áreas de tecnologia da informação, nuvem computacional,
+repositórios acadêmicos, gestão de conhecimento, linguagens de programação
+e demais tecnologias utilizadas durante o desenvolvimento da pesquisa.
 
 \section{Problema} \label{sec::Problem}
 
@@ -116,12 +116,6 @@ preparado para operar em ambientes baseados em nuvem?
 
 \section{Hipóteses} \label{sec::Hypothesis}
 \begin{enumerate}
-
-    \item É possível manter um ambiente de infraestrutura em nuvem
-          contendo os serviços de \emph{backend}, \emph{frontend}, banco de dados
-          e armazenamento das publicações com um orçamento máximo de R\$ 500,00
-          por mês.
-
     \item O recurso de Full Text Search presente no banco de dados PostgreSQL
           pode ser utilizado como uma alternativa viável para realizar
           as consultas por publicações dentro do repositório acadêmico
@@ -210,11 +204,11 @@ acadêmico proposto.
 \subsection{Validação das Hipóteses}
 
 Durante a elaboração do presente trabalho, foram elencadas
-três hipóteses, sendo a  primeira "O recurso de Full Text
+duas hipóteses, sendo a primeira "O recurso de Full Text
 Search do banco de dados PostgreSQL pode ser utilizado como
 uma alternativa viável para realizar as consultas por publicações
 dentro do repositório acadêmico (menos de 5 segundos por consulta),
-mesmo em bases de dados com mais de 30 mil publicações".
+mesmo em bases de dados com mais de 3.500 publicações".
 
 Para realizar a validação desta hipótese será utilizado do
 arXiv Dataset\footnote{https://www.kaggle.com/Cornell-University/arxiv},
@@ -223,29 +217,35 @@ para popular a base de dados do repositório institucional. Como o arXiv Dataset
 possui um grande número de registros, a base de dados será limitada
 a cerca de 3.500 publicações.
 
-Após realizar a preparação da base de dados, serão desenvolvidas
-5 consultas diferentes, que serão executadas 30 vezes cada, de forma a obter um tempo
-médio de execução por consulta. Todos os testes realizados serão executados utilizando
-a versão 14 do PostgreSQL, sobre o sistema operacional Ubuntu 22.04 LTS,
-com as seguintes configurações de hardware: Intel Core i3 9100, 16GB RAM DDR4 2400MHz,
-1TB SSD NVME WD Blue SN550.
+Após realizar a preparação da base de dados, será utilizado da ferramenta
+Apache JMeter\footnote{https://jmeter.apache.org/} para realizar um \emph{benchmark}
+de desempenho sobre a aplicação. O \emph{benchmark} proposto consiste em preparar
+uma consulta a API de pesquisa por publicações do repositório desenvolvido, que será
+executada por mil vezes. Com os resultados obtidos do \emph{benchmark} será possível
+calcular o tempo médio da realização de uma consulta por publicações no sistema proposto.
 
-A segunda hipótese é apresentada como "O processo desenvolvido
+Já a segunda hipótese é apresentada como "O processo desenvolvido
 para extração do texto das publicações para pesquisa e indexação
 é rápido o suficiente para não necessitar de processamento em
 segundo plano (menos de 5 segundos), mesmo em publicações com mais
-de 200 páginas". Esta segunda hipótese pode ser validada por meio
-de um teste de desempenho, que consiste realizar a publicação de uma
-mesma pesquisa com mais de 200 páginas diversas vezes, e mensurar
-o tempo médio para conclusão do processo.
+de 200 páginas".
 
-Já a terceira hipótese, consiste em "É possível manter um ambiente
-de infraestrutura em nuvem contendo os serviços de backend,
-frontend, banco de dados e armazenamento das publicações,
-com um orçamento máximo de R\$ 500,00 por mês". Esta hipótese
-pode ser validada por meio da comparação dos preços de diferentes
-provedores de nuvem, com base nos requisitos mínimos estipulados
-para o repositório acadêmicos proposto.
+Esta segunda hipótese também pode ser validada por meio de um teste de desempenho
+ou \emph{benchmark}, que consiste realizar a publicação de uma mesma pesquisa
+com mais de 200 páginas diversas vezes, e mensurar o tempo médio para conclusão
+do processo.
+
+Este \emph{benchmark} também será realizado através da ferramenta Apache JMeter,
+por meio da preparação de uma requisição a API do repositório desenvolvido, que será
+repetida por mil vezes. Esta requisição realizará a publicação de um arquivo PDF com
+200 páginas, contento dados fictícios puramente textuais, visto que imagens não geram
+dados textuais a serem extraídos. Com os resultados obtidos através deste \emph{benchmark}
+será possível calcular o tempo médio da realização de uma publicação no sistema proposto.
+
+Todos os testes realizados serão executados utilizando
+a versão 14 do PostgreSQL, sobre o sistema operacional Ubuntu 22.04 LTS,
+com as seguintes configurações de hardware: Intel Core i3 9100, 16GB RAM DDR4 2400MHz,
+1TB SSD NVME WD Blue SN550.
 
 \subsection{Técnicas}
 
@@ -269,16 +269,15 @@ interessadas ou \emph{Stakeholders} do projeto possam verificar como a
 interface irá parecer, enquanto sugerem mudanças
 apropriadas em relação a cores, imagens e estilos.
 
-Também foram utilizadas as técnicas de análise estatística
-e comparativa para realizar a analise de preços em diferentes
-ambientes de nuvem, e a técnica de testes para verificar
-o funcionamento do \emph{software} desenvolvido.
+Também foram utilizadas das técnicas de programação para o desenvolvimento
+do sistema, e de testes para verificar o funcionamento do \emph{software}
+desenvolvido, conforme descrito na validação da hipóteses.
 
 \section{Orçamento} \label{sec:budget}
 
 De acordo com \citep[p. 128]{LAKATOS2021:metodologia} o orçamento
 tem como objetivo responder a questão "quanto será necessário
-despender?", distribuindo os gastos com o projeto em vários items.
+despender?", distribuindo os gastos em vários items.
 
 \begin{table}[H]
     \caption{Orçamento}
