@@ -167,3 +167,53 @@ base para o desenvolvimento da aplicação.
         \multicolumn{2}{|c|}{\includegraphics[scale=0.46]{img/resoar-account.png}}                                                                                                                                                                                                                                      \\ \hline
     \end{tabular}
 \end{table}
+
+\section{Análise dos Resultados}
+
+Nesta seção será apresentado os resultados dos testes realizados
+sobre o repositório institucional desenvolvido, visando confirmar ou negar
+as hipóteses de desempenho da aplicação. Também serão apresentados gráficos de
+métricas de utilização de processador e memória do \emph{backend} da aplicação,
+visando estabelecer os requisitos mínimos do sistema.
+
+\subsection{Preparação da base de dados}
+
+Para obter o tempo médio de consulta por publicações dentro do repositório
+institucional desenvolvido, foi realizado a preparação de uma base de dados
+com 3.500 publicações, tento como base o \emph{arXiv Dataset},
+que consiste em um \emph{dataset} gratuito de publicações acadêmicas.
+
+Para realizar a preparação da base de dados, foi realizado o \emph{download} de
+3.500 publicações do \emph{arXiv Dataset} em formato PDF, e desenvolvido um algoritmo
+na linguagem C\# (mesma linguagem que foi desenvolvido o \emph{backend} do repositório
+institucional), que realiza a leitura do arquivo de metadados disponibilizado pelo \emph{arXiv},
+e compara o identificador único presente no arquivo de metadados com os arquivos presentes
+na pasta em que foi realizado o \emph{download} das publicações.
+
+O arquivo de metadados disponibilizado pelo \emph{arXiv}, consiste em um arquivo no formato
+JSON contendo uma lista de dados, como o identificador único da publicação, o nome do usuário
+que publicou o artigo, o nome dos autores, o titulo da publicação, comentários, informações sobre
+a revista em que o artigo foi publicado, o número DOI (\emph{Digital Object Identifier}), o resumo,
+as categoriais e as revisões da publicação.
+
+\begin{figure}[H]
+    \caption{Diagrama de fluxo do algoritmo de preparação da base de dados}
+    \centering
+    \frame{\includegraphics[scale=0.21]{img/pseudo-algoritmo.png}}
+    \label{fig:pseudo-algoritmo}
+\end{figure}
+
+A Figura \ref{fig:pseudo-algoritmo} apresenta o funcionamento do algoritmo, que percorre o arquivo
+de metadados, e procura pela publicação dentro da pasta onde foi realizado o \emph{download} das publicações.
+O algoritmo identifica os arquivos por meio de seu nome, visto que os arquivos possuem um padrão de nomenclatura,
+que consiste no identificador único concatenado ao número da revisão.
+
+Ao encontrar uma combinação, o algoritmo realiza a transformação dos metadados do
+\emph{arXiv} em um formato que o repositório institucional possa processar, e realiza
+a submissão da publicação dentro do repositório institucional, passando pelo mesmo
+processo que uma publicação realizada por um usuário real, porem de forma automatizada.
+
+
+
+
+\subsection{Consulta por publicações}
