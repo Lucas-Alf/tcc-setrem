@@ -102,11 +102,11 @@ o principal fator motivador, a necessidade de reunir as publicações acadêmica
 produzidas dentro de instituições em um repositório institucional,
 que forneça rápido acesso às publicações científicas,
 tanto de forma interna para os estudantes da instituição,
-quanto de forma aberta ao publico em geral.
+quanto de forma aberta ao público em geral.
 
 Também foram levados em conta os fatores relatadas nos trabalhos
 relacionados referentes a personalização, compatibilidade com
-dispositivos moveis e dificuldades na atualização entre versões
+dispositivos móveis e dificuldades na atualização entre versões
 dos \emph{softwares open source} de repositório institucional existentes.
 
 Sendo consideras tais premissas, o problema desta pesquisa foi definido:
@@ -125,7 +125,9 @@ preparado para operar em ambientes baseados em nuvem?
     \item O processo desenvolvido para extração do texto das publicações
           durante o auto arquivamento é rápido o suficiente para não
           necessitar de processamento em segundo plano (menos de 5 segundos),
-          mesmo em publicações com mais de 200 páginas.
+          mesmo em publicações com mais de 12.000 palavras, cerca de 40 páginas
+          de texto em português com fonte tamanho 12, considerando que cada página tenha
+          300 palavras.
 
 \end{enumerate}
 
@@ -148,7 +150,7 @@ se relaciona com a utilização, ou não, de análise numérica e estatística.
 
 Segundo o mesmo autor, a abordagem quantitativa é utilizada quando
 as conclusões são obtidas por meio de um conjunto de dados numéricos
-e analise estatística, busca compreender melhor situações onde é possível
+e análise estatística, busca compreender melhor situações onde é possível
 estabelecer relação entre variáveis, correlações ou causa-efeito.
 
 Já segundo \cite{GIL:metodologia} a abordagem dedutiva, conforme a definição clássica,
@@ -179,7 +181,7 @@ Conforme \citep[p. 183]{LAKATOS2003:metodologia}, a pesquisa bibliográfica
 abrange toda a bibliografia que se refere ao tema da pesquisa,
 incluindo desde publicações avulsas, boletins, jornais, revistas,
 livros, monografias, até meios de comunicação via rádio,
-gravações e filmes, tendo como finalidade realizar o contanto
+gravações e filmes, tendo como finalidade realizar o contato
 entre o pesquisador e o material já existente sobre o tema pesquisado.
 
 Este procedimento foi utilizado por meio da realização de pesquisas
@@ -225,22 +227,23 @@ executada por mil vezes. Com os resultados obtidos do \emph{benchmark} será pos
 calcular o tempo médio da realização de uma consulta por publicações no sistema proposto.
 
 Já a segunda hipótese é apresentada como "O processo desenvolvido
-para extração do texto das publicações para pesquisa e indexação
-é rápido o suficiente para não necessitar de processamento em
-segundo plano (menos de 5 segundos), mesmo em publicações com mais
-de 200 páginas".
+para extração do texto das publicações durante o auto arquivamento
+é rápido o suficiente para não necessitar de processamento em segundo
+plano (menos de 5 segundos), mesmo em publicações com mais de 12.000 palavras,
+cerca de 40 páginas de puro texto em português com fonte tamanho 12, considerando
+que cada página tenha 300 palavras.".
 
 Esta segunda hipótese também pode ser validada por meio de um teste de desempenho
 ou \emph{benchmark}, que consiste realizar a publicação de uma mesma pesquisa
-com mais de 200 páginas diversas vezes, e mensurar o tempo médio para conclusão
+com mais de 12.000 palavras diversas vezes, e mensurar o tempo médio para conclusão
 do processo.
 
 Este \emph{benchmark} também será realizado através da ferramenta Apache JMeter,
 por meio da preparação de uma requisição a API do repositório desenvolvido, que será
-repetida por mil vezes. Esta requisição realizará a publicação de um arquivo PDF com
-200 páginas, contento dados fictícios puramente textuais, visto que imagens não geram
-dados textuais a serem extraídos. Com os resultados obtidos através deste \emph{benchmark}
-será possível calcular o tempo médio da realização de uma publicação no sistema proposto.
+repetida por mil vezes. Esta requisição realizará a publicação de um arquivo PDF contento dados
+fictícios puramente textuais, visto que imagens não geram dados textuais a serem extraídos.
+Com os resultados obtidos através deste \emph{benchmark} será possível calcular o tempo médio
+da realização de uma publicação no sistema proposto.
 
 Todos os testes realizados serão executados utilizando
 a versão 14 do PostgreSQL, sobre o sistema operacional Ubuntu 22.04 LTS,
