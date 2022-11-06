@@ -253,7 +253,7 @@ milissegundos em média. É provável que o tempo médio por consulta esteja sen
 ao longo da execução, devido ao banco de dados realizar o cache das consultas.
 
 \begin{figure}[H]
-    \caption{Uso de recursos do sistema por consulta ao longo do tempo}
+    \caption{Uso de recursos do \emph{backend} por consulta ao longo do tempo}
     \centering
     \frame{\includegraphics[scale=0.75]{img/resource-usage-advanced-search.png}}
     \label{fig:resource-usage-advanced-search}
@@ -269,3 +269,61 @@ de memória durante os primeiros 50 segundos, depois estabilizando em 150 MB. J�
 utilização de processador teve picos acima de 400\% visto que o teste foi executado em um
 processador com quatro núcleos, porém em grande parte do tempo se manteve acima de 200\%,
 demonstrando que o \emph{backend} está aproveitando os múltiplos núcleos do processador.
+
+\subsection{Submissão de publicações}
+
+Da mesma forma que o teste de consulta por publicações, o teste de submissão de
+publicações também foi elaborado a partir do Apache JMeter. Para obter o tempo médio
+de submissão de publicação, foi preparado um cenário de teste onde uma mesma publicação
+com 12.000 palavras (cerca de 40 páginas de texto em português com fonte tamanho 12,
+considerando que cada página tenha 300 palavras) foi realizada por mil vezes a API do
+repositório institucional.
+
+\begin{figure}[H]
+    \caption{Métricas de submissão de publicações}
+    \frame{\includegraphics[scale=0.675]{img/matrics-create-research.png}}
+    \label{fig:matrics-create-research}
+\end{figure}
+
+A Figura \ref{fig:matrics-create-research} apresenta as métricas obtidas através do
+teste, onde é possível visualizar que nenhuma requisição apresentou falha, e que houve
+um tempo médio de resposta de 2,63 segundos, com um tempo mínimo de 2,20 segundos, e
+um tempo máximo de 5,48 segundos. A figura também apresenta os valores de mediana, e
+percentil.
+
+\begin{figure}[H]
+    \caption{Tempo médio de reposta por submissão ao longo do tempo}
+    \centering
+    \frame{\includegraphics[scale=0.505]{img/create-response-over-time.png}}
+    \label{fig:create-response-over-time}
+\end{figure}
+
+A Figura \ref{fig:create-response-over-time} apresenta o tempo médio de resposta
+de submissão das publicações ao longo do tempo, com uma granularidade de 1 minuto,
+onde é possível visualizar que as primeiras publicações realizadas possuem em média
+3,64 segundos de reposta, tempo que logo em seguida é reduzido e se mantém entre 2,6
+e 2,8 segundos.
+
+\begin{figure}[H]
+    \caption{Uso de recursos do \emph{backend} por submissão ao longo do tempo}
+    \centering
+    \frame{\includegraphics[scale=0.93]{img/resource-usage-create-research.png}}
+    \label{fig:resource-usage-create-research}
+\end{figure}
+
+Já a Figura \ref{fig:resource-usage-create-research} demonstra o uso de recursos
+de memória e processor do \emph{backend} do repositório institucional, ao longo
+dos primeiros 150 segundos da execução do teste de submissão de publicações.
+Da mesma forma que o gráfico de uso de recurso por consultas, estas métricas
+também foram coletadas por meio da ferramenta \emph{psrecord}.
+
+Nesta mesma figura é possível visualizar que durante a execução do teste houve uma
+utilização máxima de 488,66 MB de memória, minima de 114,86 MB, e média de 419,38 MB.
+Também é perceptível que a curva de utilização de memória parece um pouco quadriculada,
+isso ocorre devido ao tempo necessário para realizar o \emph{upload} do arquivo PDF
+aos servidores da Digital Ocean, que é o \emph{Cloud Provider} utilizado para o
+armazenamento das publicações.
+
+O gráfico também demonstra que o \emph{backend} do repositório institucional
+está aproveitando dos múltiplos núcleos do processador para processar as requisições,
+porém na maior parte do tempo a carga parece estar sendo dividida em dois núcleos.
