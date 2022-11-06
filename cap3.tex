@@ -178,10 +178,10 @@ visando estabelecer os requisitos mínimos do sistema.
 
 \subsection{Preparação da base de dados}
 
-Para obter o tempo médio de consulta por publicações dentro do repositório
-institucional desenvolvido, foi realizado a preparação de uma base de dados
-com 3.500 publicações, tento como base o \emph{arXiv Dataset},
-que consiste em um \emph{dataset} gratuito de publicações acadêmicas.
+Para a realização dos testes no repositório institucional desenvolvido,
+foi realizado a preparação de uma base de dados com 3.500 publicações,
+tento como base o \emph{arXiv Dataset}, que consiste em um \emph{dataset}
+gratuito de publicações acadêmicas.
 
 Para realizar a preparação da base de dados, foi realizado o \emph{download} de
 3.500 publicações do \emph{arXiv Dataset} em formato PDF, e desenvolvido um algoritmo
@@ -211,9 +211,61 @@ que consiste no identificador único concatenado ao número da revisão.
 Ao encontrar uma combinação, o algoritmo realiza a transformação dos metadados do
 \emph{arXiv} em um formato que o repositório institucional possa processar, e realiza
 a submissão da publicação dentro do repositório institucional, passando pelo mesmo
-processo que uma publicação realizada por um usuário real, porem de forma automatizada.
-
-
-
+processo que uma publicação realizada por um usuário real, porém de forma automatizada.
 
 \subsection{Consulta por publicações}
+
+Para obter o tempo médio de consultas por publicações dentro do repositório
+institucional, foi utilizado da ferramenta Apache JMeter, que consiste em um
+\emph{software} para a realização de testes de carga e stress.
+
+A partir do Apache JMeter, foi preparado um cenário de teste onde uma consulta
+pelo termo "\emph{Distribution of H2O}'' foi realizada por mil vezes a API do
+repositório institucional. O termo utilizado na pesquisa poderia ser outro, e
+foi escolhido apenas pelo conhecimento que haveria publicações com termos semelhantes
+na base de dados, visto que não faria sentido realizar um teste de stress sobre um termo
+que não possuísse resultados.
+
+\begin{figure}[H]
+    \caption{Métricas de consulta por publicações}
+    \frame{\includegraphics[scale=0.66]{img/matrics-advanced-search.png}}
+    \label{fig:matrics-advanced-search}
+\end{figure}
+
+A Figura \ref{fig:matrics-advanced-search} apresenta as métricas resultantes do teste
+realizado com o Apache JMeter, nesta figura é possível visualizar que durante o teste
+nenhuma requisição apresentou erro, trazendo um tempo de resposta médio de 115 milissegundos
+por requisição, um tempo mínimo de 110 milissegundos, e um tempo máximo de 931 milissegundos.
+Na figura também é possível visualizar os valores de mediana e percentil.
+
+\begin{figure}[H]
+    \caption{Tempo médio de reposta por consulta ao longo do tempo}
+    \centering
+    \frame{\includegraphics[scale=0.51]{img/search-response-over-time.png}}
+    \label{fig:search-response-over-time}
+\end{figure}
+
+A Figura \ref{fig:search-response-over-time} apresenta o tempo médio de respostas
+em milissegundos ao longo da execução do teste, com uma granularidade de 1 minuto.
+Nesta figura é possível perceber que o tempo médio de resposta diminui ao longo
+do tempo, iniciando em 119 milissegundos, e reduzindo até aproximadamente 112
+milissegundos em média. É provável que o tempo médio por consulta esteja sendo reduzido
+ao longo da execução, devido ao banco de dados realizar o cache das consultas.
+
+\begin{figure}[H]
+    \caption{Uso de recursos do sistema por consulta ao longo do tempo}
+    \centering
+    \frame{\includegraphics[scale=0.75]{img/resource-usage-advanced-search.png}}
+    \label{fig:resource-usage-advanced-search}
+\end{figure}
+
+A Figura \ref{fig:resource-usage-advanced-search} apresenta o uso de recursos
+de memória e processador do \emph{backend} do repositório institucional ao longo
+dos primeiros 150 segundos de execução do teste. Estas métricas foram coletadas por
+meio da ferramenta \emph{psrecord}\footnote{https://github.com/astrofrog/psrecord}.
+
+Nesta mesma figura é possível visualizar que durante o teste ouve um pico de 226 MB de utilização
+de memória durante os primeiros 50 segundos, depois estabilizando em 150 MB. Já a
+utilização de processador teve picos acima de 400\% visto que o teste foi executado em um
+processador com quatro núcleos, porém em grande parte do tempo se manteve acima de 200\%,
+demonstrando que o \emph{backend} está aproveitando os múltiplos núcleos do processador.

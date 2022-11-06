@@ -115,16 +115,17 @@ acadêmicas, utilizando de tecnologias de nível empresarial, e que esteja
 preparado para operar em ambientes baseados em nuvem?
 
 \section{Hipóteses} \label{sec::Hypothesis}
+
 \begin{enumerate}
     \item O recurso de Full Text Search presente no banco de dados PostgreSQL
           pode ser utilizado como uma alternativa viável para realizar
           as consultas por publicações dentro do repositório acadêmico
-          proposto, (menos de 5 segundos por consulta), mesmo em bases de
+          proposto, (menos de 1 segundo por consulta), mesmo em bases de
           dados com mais de 3.500 publicações.
 
     \item O processo desenvolvido para extração do texto das publicações
           durante o auto arquivamento é rápido o suficiente para não
-          necessitar de processamento em segundo plano (menos de 5 segundos),
+          necessitar de processamento em segundo plano (menos de 3 segundos),
           mesmo em publicações com mais de 12.000 palavras, cerca de 40 páginas
           de texto em português com fonte tamanho 12, considerando que cada página tenha
           300 palavras.
@@ -209,10 +210,26 @@ Durante a elaboração do presente trabalho, foram elencadas
 duas hipóteses, sendo a primeira "O recurso de Full Text
 Search do banco de dados PostgreSQL pode ser utilizado como
 uma alternativa viável para realizar as consultas por publicações
-dentro do repositório acadêmico (menos de 5 segundos por consulta),
+dentro do repositório acadêmico (menos de 1 segundos por consulta),
 mesmo em bases de dados com mais de 3.500 publicações".
 
-Para realizar a validação desta hipótese será utilizado do
+Já a segunda hipótese é apresentada como "O processo desenvolvido
+para extração do texto das publicações durante o auto arquivamento
+é rápido o suficiente para não necessitar de processamento em segundo
+plano (menos de 3 segundos), mesmo em publicações com mais de 12.000 palavras,
+cerca de 40 páginas de puro texto em português com fonte tamanho 12, considerando
+que cada página tenha 300 palavras".
+
+Ambas as hipóteses possuem o viés de medir o desempenho da aplicação
+desenvolvida. O tempo máximo de 1 segundo para consulta, e 3 segundos
+para uma publicação, foi escolhido com base na teoria de \cite{1994:Nielsen},
+que afirma que o tempo de reposta inferior a 0.1 segundos é considerado
+como uma reação instantânea pelo usuário, acima de 1 segundo o usuário
+já percebe o atraso, necessitando de um \emph{feedback} visual, como uma
+barra de carregamento, e acima de 10 segundos o usuário provavelmente perderá
+o interesse e vá realizar outras atividades enquanto aguarda.
+
+Para realizar a validação da primeira hipótese será utilizado do
 \emph{arXiv Dataset}\footnote{https://www.kaggle.com/Cornell-University/arxiv},
 um \emph{dataset} gratuito com mais de 1.7 milhões de artigos e publicações acadêmicas,
 para popular a base de dados do repositório institucional. Como o arXiv Dataset
@@ -226,14 +243,7 @@ uma consulta a API de pesquisa por publicações do repositório desenvolvido, q
 executada por mil vezes. Com os resultados obtidos do \emph{benchmark} será possível
 calcular o tempo médio da realização de uma consulta por publicações no sistema proposto.
 
-Já a segunda hipótese é apresentada como "O processo desenvolvido
-para extração do texto das publicações durante o auto arquivamento
-é rápido o suficiente para não necessitar de processamento em segundo
-plano (menos de 5 segundos), mesmo em publicações com mais de 12.000 palavras,
-cerca de 40 páginas de puro texto em português com fonte tamanho 12, considerando
-que cada página tenha 300 palavras.".
-
-Esta segunda hipótese também pode ser validada por meio de um teste de desempenho
+A segunda hipótese também pode ser validada por meio de um teste de desempenho
 ou \emph{benchmark}, que consiste realizar a publicação de uma mesma pesquisa
 com mais de 12.000 palavras diversas vezes, e mensurar o tempo médio para conclusão
 do processo.
