@@ -168,10 +168,13 @@ base para o desenvolvimento da aplicação.
     \end{tabular}
 \end{table}
 
+\section{Arquitetura da aplicação}
+
+
 \section{Análise dos Resultados}
 
 Nesta seção será apresentado os resultados dos testes realizados
-sobre o repositório institucional desenvolvido, visando confirmar ou negar
+sobre o repositório institucional desenvolvido, visando corroborar ou refutar
 as hipóteses de desempenho da aplicação. Também serão apresentados gráficos de
 métricas de utilização de processador e memória do \emph{backend} da aplicação,
 visando estabelecer os requisitos mínimos do sistema.
@@ -228,29 +231,30 @@ que não possuísse resultados.
 
 \begin{figure}[H]
     \caption{Métricas de consulta por publicações}
-    \frame{\includegraphics[scale=0.66]{img/matrics-advanced-search.png}}
+    \frame{\includegraphics[scale=0.703]{img/matrics-advanced-search.png}}
     \label{fig:matrics-advanced-search}
 \end{figure}
 
 A Figura \ref{fig:matrics-advanced-search} apresenta as métricas resultantes do teste
-realizado com o Apache JMeter, nesta figura é possível visualizar que durante o teste
-nenhuma requisição apresentou erro, trazendo um tempo de resposta médio de 115 milissegundos
-por requisição, um tempo mínimo de 110 milissegundos, e um tempo máximo de 931 milissegundos.
-Na figura também é possível visualizar os valores de mediana e percentil.
+realizado com o Apache JMeter, nesta figura é possível visualizar que houve um tempo de
+resposta médio de 114,54 milissegundos por requisição, um tempo mínimo de 109,4
+milissegundos, e um tempo máximo de 1131,8 milissegundos. Na figura também é possível
+visualizar os valores de mediana, percentil, transações por segundo, e informações da
+rede.
 
 \begin{figure}[H]
     \caption{Tempo médio de reposta por consulta ao longo do tempo}
     \centering
-    \frame{\includegraphics[scale=0.51]{img/search-response-over-time.png}}
+    \frame{\includegraphics[scale=0.708]{img/search-response-over-time.png}}
     \label{fig:search-response-over-time}
 \end{figure}
 
 A Figura \ref{fig:search-response-over-time} apresenta o tempo médio de respostas
-em milissegundos ao longo da execução do teste, com uma granularidade de 1 minuto.
-Nesta figura é possível perceber que o tempo médio de resposta diminui ao longo
-do tempo, iniciando em 119 milissegundos, e reduzindo até aproximadamente 112
-milissegundos em média. É provável que o tempo médio por consulta esteja sendo reduzido
-ao longo da execução, devido ao banco de dados realizar o cache das consultas.
+em milissegundos, dentro dos primeiros 31 segundos de execução do teste. Nesta figura
+é possível perceber que o tempo médio de resposta diminui ao longo do tempo, iniciando
+em 136,16 milissegundos, e reduzindo para valores entre 117 e 112 milissegundos ao longo
+da execução. É provável que o tempo médio por consulta esteja sendo reduzido devido ao
+banco de dados realizar o cache das consultas.
 
 \begin{figure}[H]
     \caption{Uso de recursos do \emph{backend} por consulta ao longo do tempo}
@@ -264,9 +268,9 @@ de memória e processador do \emph{backend} do repositório institucional ao lon
 dos primeiros 150 segundos de execução do teste. Estas métricas foram coletadas por
 meio da ferramenta \emph{psrecord}\footnote{https://github.com/astrofrog/psrecord}.
 
-Nesta mesma figura é possível visualizar que durante o teste ouve um pico de 226 MB de utilização
-de memória durante os primeiros 50 segundos, depois estabilizando em 150 MB. Já a
-utilização de processador teve picos acima de 400\% visto que o teste foi executado em um
+Nesta mesma figura é possível visualizar que durante o teste ouve um pico de 559,62 MB
+de utilização de memória, minima de 198,73 MB, e média de 471,09 MB. Já a utilização de
+processador teve picos acima de 400\% visto que o teste foi executado em um
 processador com quatro núcleos, porém em grande parte do tempo se manteve acima de 200\%,
 demonstrando que o \emph{backend} está aproveitando os múltiplos núcleos do processador.
 
@@ -281,28 +285,27 @@ repositório institucional.
 
 \begin{figure}[H]
     \caption{Métricas de submissão de publicações}
-    \frame{\includegraphics[scale=0.675]{img/matrics-create-research.png}}
+    \frame{\includegraphics[scale=0.703]{img/matrics-create-research.png}}
     \label{fig:matrics-create-research}
 \end{figure}
 
 A Figura \ref{fig:matrics-create-research} apresenta as métricas obtidas através do
-teste, onde é possível visualizar que nenhuma requisição apresentou falha, e que houve
-um tempo médio de resposta de 2,63 segundos, com um tempo mínimo de 2,20 segundos, e
-um tempo máximo de 5,48 segundos. A figura também apresenta os valores de mediana, e
-percentil.
+teste, onde é possível visualizar que houve um tempo médio de resposta de 2,56 segundos,
+com um tempo mínimo de 2,30 segundos, e um tempo máximo de 6,62 segundos. A figura também
+apresenta os valores de mediana, percentil, transações por segundo, e informações de rede.
 
 \begin{figure}[H]
     \caption{Tempo médio de reposta por submissão ao longo do tempo}
     \centering
-    \frame{\includegraphics[scale=0.505]{img/create-response-over-time.png}}
+    \frame{\includegraphics[scale=0.70]{img/create-response-over-time.png}}
     \label{fig:create-response-over-time}
 \end{figure}
 
 A Figura \ref{fig:create-response-over-time} apresenta o tempo médio de resposta
-de submissão das publicações ao longo do tempo, com uma granularidade de 1 minuto,
-onde é possível visualizar que as primeiras publicações realizadas possuem em média
-3,64 segundos de reposta, tempo que logo em seguida é reduzido e se mantém entre 2,6
-e 2,8 segundos.
+de submissão das publicações ao longo dos primeiros 50 segundos do teste, onde é
+possível visualizar que as primeiras publicações realizadas levam em média
+3,52 segundos para serem concluídas, e este tempo logo em seguida é reduzido, e se
+mantém entre 2,5 e 2,8 segundos.
 
 \begin{figure}[H]
     \caption{Uso de recursos do \emph{backend} por submissão ao longo do tempo}
@@ -318,7 +321,7 @@ Da mesma forma que o gráfico de uso de recurso por consultas, estas métricas
 também foram coletadas por meio da ferramenta \emph{psrecord}.
 
 Nesta mesma figura é possível visualizar que durante a execução do teste houve uma
-utilização máxima de 488,66 MB de memória, minima de 114,86 MB, e média de 419,38 MB.
+utilização máxima de 559,62 MB de memória, minima de 198,73 MB, e média de 471,09 MB.
 Também é perceptível que a curva de utilização de memória parece um pouco quadriculada,
 isso ocorre devido ao tempo necessário para realizar o \emph{upload} do arquivo PDF
 aos servidores da Digital Ocean, que é o \emph{Cloud Provider} utilizado para o
