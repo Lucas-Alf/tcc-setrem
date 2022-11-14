@@ -170,6 +170,78 @@ base para o desenvolvimento da aplicação.
 
 \section{Arquitetura da aplicação}
 
+Nesta seção será apresentada a estrutura utilizada para desenvolver tanto o
+\emph{frontend} quanto o \emph{backend} do repositório institutional, além das
+ferramentas e tecnologias utilizadas durante o processo de desenvolvimento.
+
+Para realizar o versionamento de código, tanto do \emph{backend} quanto do
+\emph{frontend} foi utilizado do GitHub\footnote{https://github.com/}, em
+conjunto com o SonarCloud\footnote{https://sonarcloud.io/} para a realização
+de \emph{code review} automatizado, e controle de qualidade de código.
+
+\subsection{Estrutura de Backend}
+
+O \emph{backend} do repositório institucional consiste em uma API REST escrita na
+linguagem C\#, utilizando do .NET 7. Para conexão com o banco de dados foi utilizado
+do \emph{ORM} (\emph{Object Relational Mapper}) Entity Framework, porém o projeto
+também oferece suporte ao \emph{Micro ORM} Dapper. Como esquema de autenticação
+de usuário foi optado pelo JWT (\emph{JSON Web Tokens}).
+
+Este projeto segue a estrutura de \emph{Repository Pattern}, em conformidade com os
+conceitos do DDD (\emph{Domain-Driven Design}), que permitem a divisão do código
+fonte em diversas camadas, que neste projeto foram dividas em:
+
+\begin{enumerate}
+    \item \textbf{Core}: contem as camadas de \emph{Domain} e \emph{Application},
+          envolvendo as entidades que serão utilizadas para modelar o banco de dados,
+          e as \emph{Services} que funcionam como uma camada intermediária, que visam
+          integrar somente oque desejamos expor da camada \emph{Infrastructure} a
+          camada \emph{Presentation}.
+
+    \item \textbf{Infrastructure}: responsável por todo e qualquer acesso ou operação
+          sobre o banco de dados, contendo os arquivos de configuração de conexão,
+          configurações do \emph{ORM}, \emph{Migrations} e \emph{Repositories}.
+
+    \item \textbf{Presentation}: consiste em uma API REST, responsável pela comunicação
+          entre o usuário final e a aplicação, nesta camada estarão presentes as
+          \emph{Controllers} e outras configurações da API.
+
+    \item \textbf{Tests}: contem os arquivos referentes a testes unitários, testes de
+          integração, ou outros \emph{scripts} de automatização de testes.
+\end{enumerate}
+
+Como banco de dados foi utilizado o PostgreSQL, visto que este possui recursos de
+\emph{full-text search} embutidos, que foram utilizados para realizar a consulta
+por publicações. Para realizar a modelagem do banco de dados, envés de seguir
+uma estrutura tradicional de modelo ER, foi utilizado de uma abordagem
+\emph{code first}, por meio do recurso de \emph{Migrations} fornecido pelo
+\emph{Entity Framework}.
+
+Para realizar o armazenamento dos arquivos das publicações, é utilizado de serviços de
+\emph{Object Storage} baseados em nuvem, dando suporte ao \emph{Digital Ocean Spaces}
+e ao \emph{Amazon S3}.
+
+\subsection{Estrutura de Frontend}
+
+O \emph{frontend} do repositório institucional foi desenvolvido majoritariamente
+na linguagem de programação JavaScript utilizando do React, em conjunto do
+\emph{build tool} Vite, e dos componentes visuais do Material UI.
+
+Este projeto segue uma estrutura básica, onde os arquivo estão organizados
+em pastas, que normalmente são encontradas em projetos feitos em React, sendo:
+\begin{enumerate}
+    \item \textbf{Assets}: contem arquivos estáticos de imagens, sons,
+          arquivos de texto, etc.
+    \item \textbf{Components}: contem os componentes personalizados do projeto,
+          como o \emph{layout} do site, \emph{NavBar}, menu lateral, etc.
+    \item \textbf{Pages}: contem as páginas do site, como a página de \emph{login},
+          \emph{home}, perfil do usuário, etc.
+    \item \textbf{Services}: contem os arquivos responsáveis pela comunicação
+          com a API, por meio de requisições HTTP.
+    \item \textbf{Themes}: contem os arquivos de estilos do projeto, como
+          o tema claro, tema escuro, cores primárias, secundárias, etc.
+\end{enumerate}
+
 
 \section{Análise dos Resultados}
 
@@ -259,7 +331,7 @@ banco de dados realizar o cache das consultas.
 \begin{figure}[H]
     \caption{Uso de recursos do \emph{backend} por consulta ao longo do tempo}
     \centering
-    \frame{\includegraphics[scale=0.75]{img/resource-usage-advanced-search.png}}
+    \frame{\includegraphics[scale=0.85]{img/resource-usage-advanced-search.png}}
     \label{fig:resource-usage-advanced-search}
 \end{figure}
 
