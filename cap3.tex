@@ -176,7 +176,7 @@ ferramentas e tecnologias utilizadas durante o processo de desenvolvimento.
 
 Para realizar o versionamento de código, tanto do \emph{backend} quanto do
 \emph{frontend} foi utilizado do GitHub\footnote{https://github.com/}, em
-conjunto do SonarCloud\footnote{https://sonarcloud.io/} para a realização
+conjunto d, o SonarCloud\footnote{https://sonarcloud.io/} para a realização
 de \emph{code review} automatizado, e controle de qualidade de código.
 
 \subsection{Estrutura de Backend}
@@ -192,7 +192,7 @@ conceitos do DDD (\emph{Domain-Driven Design}), que permitem a divisão do códi
 fonte em diversas camadas, que neste projeto foram dividas em:
 
 \begin{enumerate}
-    \item \textbf{Core}: contem as camadas de \emph{Domain} e \emph{Application},
+    \item \textbf{Core}: contém as camadas de \emph{Domain} e \emph{Application},
           envolvendo as entidades que serão utilizadas para modelar o banco de dados,
           e as \emph{Services} que funcionam como uma camada intermediária, que visam
           integrar somente oque desejamos expor da camada \emph{Infrastructure} a
@@ -206,7 +206,7 @@ fonte em diversas camadas, que neste projeto foram dividas em:
           entre o usuário final e a aplicação, nesta camada estarão presentes as
           \emph{Controllers} e outras configurações da API.
 
-    \item \textbf{Tests}: contem os arquivos referentes a testes unitários, testes de
+    \item \textbf{Tests}: contém os arquivos referentes a testes unitários, testes de
           integração, ou outros \emph{scripts} de automatização de testes.
 \end{enumerate}
 
@@ -230,15 +230,15 @@ na linguagem de programação JavaScript utilizando do React, em conjunto do
 Este projeto segue uma estrutura básica, onde os arquivo estão organizados
 em pastas, que normalmente são encontradas em projetos feitos em React, sendo:
 \begin{enumerate}
-    \item \textbf{Assets}: contem arquivos estáticos de imagens, sons,
+    \item \textbf{Assets}: contém arquivos estáticos de imagens, sons,
           arquivos de texto, etc.
-    \item \textbf{Components}: contem os componentes personalizados do projeto,
+    \item \textbf{Components}: contém os componentes personalizados do projeto,
           como o \emph{layout} do site, \emph{NavBar}, menu lateral, etc.
-    \item \textbf{Pages}: contem as páginas do site, como a página de \emph{login},
+    \item \textbf{Pages}: contém as páginas do site, como a página de \emph{login},
           \emph{home}, perfil do usuário, etc.
-    \item \textbf{Services}: contem os arquivos responsáveis pela comunicação
+    \item \textbf{Services}: contém os arquivos responsáveis pela comunicação
           com a API, por meio de requisições HTTP.
-    \item \textbf{Themes}: contem os arquivos de estilos do projeto, como
+    \item \textbf{Themes}: contém os arquivos de estilos do projeto, como
           o tema claro, tema escuro, cores primárias, secundárias, etc.
 \end{enumerate}
 
@@ -288,7 +288,7 @@ Ao encontrar uma combinação, o algoritmo realiza a transformação dos metadad
 a submissão da publicação dentro do repositório institucional, passando pelo mesmo
 processo que uma publicação realizada por um usuário real, porém de forma automatizada.
 
-\subsection{Consulta por publicações}
+\subsection{Teste de Consulta por Publicações}
 
 Para obter o tempo médio de consultas por publicações dentro do repositório
 institucional, foi utilizado da ferramenta Apache JMeter, que consiste em um
@@ -346,7 +346,7 @@ processador teve picos acima de 400\% visto que o teste foi executado em um
 processador com quatro núcleos, porém em grande parte do tempo se manteve acima de 200\%,
 demonstrando que o \emph{backend} está aproveitando os múltiplos núcleos do processador.
 
-\subsection{Submissão de publicações}
+\subsection{Teste de Submissão de Publicações}
 
 Da mesma forma que o teste de consulta por publicações, o teste de submissão de
 publicações também foi elaborado a partir do Apache JMeter. Para obter o tempo médio
@@ -402,3 +402,96 @@ armazenamento das publicações.
 O gráfico também demonstra que o \emph{backend} do repositório institucional
 está aproveitando dos múltiplos núcleos do processador para processar as requisições,
 porém na maior parte do tempo a carga parece estar sendo dividida em dois núcleos.
+
+\subsection{Requisitos Mínimos do Sistema}
+
+Com base nas métricas coletadas através dos testes de carga e estresse apresentados
+no tópico anterior, foram definidos os requisitos mínimos de \emph{hardware}
+para realizar a execução do repositório institucional desenvolvido.
+
+\subsubsection{Frontend}
+
+Por se tratar de um site estático desenvolvido em React, o \emph{frontend} desenvolvido
+para o repositório institucional não possui requisitos mínimos de CPU ou memória, podendo
+ser hospedado em qualquer provedor de nuvem que ofereça a opção de hospedagem de sites
+estáticos, realizando o cache dos arquivos em CDN (\emph{Content Delivery Network}).
+
+Alguns provedores de nuvem fornecem a opção de realizar este tipo de hospedagem forma
+gratuita, em conjunto com HTTPS também gratuito, como no caso da Digital Ocean App Platform\footnote{https://www.digitalocean.com/products/app-platform}
+e do Vercel\footnote{https://vercel.com/}.
+
+Já no quesito de compatibilidade com navegadores, o \emph{frontend} desenvolvido segue
+os mesmos padrões de compatibilidade do Vite 3, necessitando de suporte a \emph{JavaScript}
+moderno, módulos \emph{JavaScript} nativos, importação dinâmica de módulos nativos,
+e suporte ao \textbf{import.meta}.
+
+\begin{enumerate}
+    \item \textbf{Chrome} >= 87
+    \item \textbf{Firefox} >= 78
+    \item \textbf{Safari} >= 13
+    \item \textbf{Edge} >= 88
+\end{enumerate}
+
+O suporte a navegadores legados poderia ser implementado por meio de
+tecnologias como o Polyfill\footnote{https://polyfill.io}, porém foi
+optado por oferecer suporte por padrão somente a navegadores modernos.
+
+\subsubsection{Backend}
+
+Com base nos dados coletados durantes os testes de carga e estresse,
+e nos requisitos do .NET 7, foram elaborados dois conjuntos de requisitos
+para a execução do \emph{backend} do repositório institucional, sendo os
+requisitos mínimos, e os recomendados.
+
+\begin{table}[H]
+    \caption{Requisitos mínimos de \emph{backend}}
+    \label{quad:requisitos-backend}
+    \begin{tabular}{|p{9.5cm}|ll|}
+        \hline
+        \textbf{Recurso}    & \multicolumn{1}{l|}{\textbf{Mínimo}}        & \textbf{Recomendado} \\ \hline
+        CPU                 & \multicolumn{1}{l|}{1 vCPU}                 & 2 vCPU+              \\ \hline
+        Memória RAM         & \multicolumn{1}{l|}{512 MB}                 & 1 GB+                \\ \hline
+        Armazenamento       & \multicolumn{1}{l|}{4.5 GB}                 & 4.5 GB+              \\ \hline
+        \multirow{3}{*}{OS} & \multicolumn{2}{l|}{Debian 10+ x64}                                \\ \cline{2-3}
+                            & \multicolumn{2}{l|}{Ubuntu 18.04+ x64}                             \\ \cline{2-3}
+                            & \multicolumn{2}{l|}{Alpine Linux 3.15+ x64}                        \\ \hline
+    \end{tabular}
+\end{table}
+
+O Quadro \ref{quad:requisitos-backend} apresenta os requisitos mínimos e recomendados de
+CPU, memória RAM, armazenamento e sistema operacional. Devido ao uso de algumas bibliotecas
+como o \emph{SkiaSharp} para a manipulação de imagens, o \emph{backend} somente possui
+suporte a sistemas operacionais Linux.
+
+Também é necessário ressaltar que os requisitos mínimos apenas devem ser utilizados
+em ambientes de testes. Em ambientes de produção com usuários ativos utilizado
+o sistema, deve ser utilizado de requisitos iguais ou superiores aos recomendados.
+
+\subsubsection{Banco de dados}
+
+Como requisito de banco de dados, deve ser utilizado do PostgreSQL 14 ou superior,
+já os requisitos de \emph{hardware} variam de acordo com o número de usuários ativos
+utilizando o sistema.
+
+\begin{table}[H]
+    \caption{Requisitos de banco de dados}
+    \label{quad:requisitos-database}
+    \begin{tabular}{|p{9.7cm}|c|c|}
+        \hline
+        {\textbf{Recurso}} & {\textbf{Mínimo}} & {\textbf{Recomendado}} \\ \hline
+        {CPU}              & {1 vCPU}          & {2 vCPU+ }             \\ \hline
+        {Memória RAM}      & {1 GB}            & {4 GB+ }               \\ \hline
+        {Armazenamento}    & {10 GB}           & {25 GB+ }              \\ \hline
+    \end{tabular}
+\end{table}
+
+O Quadro \ref{quad:requisitos-database} apresenta os requisitos de \emph{hardware}
+mínimos e recomendados para o banco de dados do repositório institucional.
+Os requisitos mínimos devem ser utilizados somente em ambientes de testes,
+onde existam ao máximo 22 conexões simultâneas ao banco de dados.
+
+Em ambientes de produção, deve ser utilizado de requisitos iguais ou superiores
+aos recomendados, também sendo indicado a utilização de um sistema de \emph{pool}
+de conexões como o \emph{pgBouncer}\footnote{https://www.pgbouncer.org/}
+para melhores resultados.
+
