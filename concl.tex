@@ -1,6 +1,77 @@
 \chapter*{Conclusão} \label{chap:concl}
 
+Cada vez mais os repositórios institucionais estão sendo adotados por instituições de
+ensino superior, com o objetivo de reunir, preservar e oferecer o fácil acesso ao material
+científico produzido ao decorrer dos anos. Sendo por meio deste movimento de preservação
+digital da produção científica, que iniciativas de acesso aberto se tornam possíveis,
+possibilitando que uma produção científica escrita hoje possa ser vista e acessada
+de forma gratuita pelo mundo todo, podendo ser utilizada como base ou inspiração para
+diversas outras pesquisas.
 
-As conclusões vão aqui ...
+Também torna-se relevante a existência do desenvolvimento ativo de diferentes
+alternativas de \emph{softwares} utilizados para elaborar tais repositórios
+institucionais, tendo em vista o constante progresso tecnológico, e a necessidade
+de que estas ferramentas não fiquem ultrapassadas ou monopolizadas por uma única
+opção de \emph{software}. Além da necessidade da existência de padrões, para que
+estas alternativas não criem um ambiente fragmentado de sistemas e padrões que não
+são compatíveis entre si.
 
+O objetivo deste trabalho de desenvolver um repositório institucional de pesquisas
+acadêmicas baseado em nuvem, visando reunir e preservar as publicações acadêmicas
+e científicas produzidas em âmbito universitário, além de unificar o processo
+de publicações e correções por parte dos orientadores em uma única plataforma,
+foi atingido, por meio do desenvolvimento de um novo \emph{software web} de
+repositório institutional que foi denominado de \emph{RESOAR}
+(\emph{Research Open Access Repository}).
 
+O \emph{RESOAR} foi desenvolvido tendo como objetivo utilizar de tecnologias baseadas
+em nuvem para realizar o armazenamento das publicações acadêmicas, possuindo suporte
+a serviços de \emph{Object Storage} como o \emph{Amazon S3} e o \emph{Digital Ocean Spaces}.
+
+Além disto, todas as configurações tanto do \emph{backend} quanto do \emph{frontend}
+podem ser realizadas por meio de variáveis de ambiente, visando facilitar a implantação
+do sistema em ambientes baseados em nuvem por meio de imagens \emph{docker}, tendo como
+principio a ideia de nunca precisar acessar remotamente o container para realizar qualquer
+tipo de configuração.
+
+A primeira hipótese deste trabalho apresenta que "O recurso de \emph{Full Text Search} presente
+no banco de dados PostgreSQL pode ser utilizado como uma alternativa viável para realizar
+as consultas por publicações dentro do repositório acadêmico proposto, (menos de 1 segundo
+por consulta), mesmo em bases de dados com mais de 3.500 publicações".
+
+Esta primeira hipótese foi validada por meio da execução de testes de carga e estresse
+sobre sobre o \emph{endpoint} de consulta por publicações do \emph{backend} desenvolvido.
+Com os dados coletados, foi constatado que no cenário descrito pela hipótese, uma consulta
+no repositório institucional possui um tempo médio de 114,54 milissegundos.
+
+Já a segunda hipótese deste trabalho afirma que "O processo desenvolvido para extração do
+texto das publicações durante o auto arquivamento é rápido o suficiente para não necessitar
+de processamento em segundo plano (menos de 3 segundos), mesmo em publicações com mais de
+12.000 palavras, cerca de 40 páginas de texto em português com fonte tamanho 12,
+considerando que cada página tenha 300 palavras."
+
+Esta segunda hipótese também foi validada por meio da aplicação de um teste de carga
+e estresse sobre o \emph{backend} desenvolvido para o repositório institucional. Por meio
+das métricas coletadas, foi constatado que uma publicação com as características
+descritas pela hipótese, demora em média 2,30 segundos para ser concluída.
+
+Em suma, o foco deste trabalho de desenvolver um novo repositório institucional
+de pesquisas acadêmicas, utilizando de tecnologias baseadas em nuvem, e unificar
+o processo de publicações e correções por parte dos alunos e orientadores, foi atingido.
+Proporcionando aos envolvidos um grande aprendizado nas diversas áreas que envolvem
+o desenvolvimento de \emph{software}, além de possibilitar a aplicação em prática dos
+conhecimentos adquiridos ao decorrer da graduação.
+
+Também fica como contribuição, a possibilidade da utilização do \emph{software}
+desenvolvido, tanto pela SETREM, quanto a outras instituições que venham desenvolver
+interesse pela utilização, ou pela contribuição com o projeto por meio de sugestões
+ou melhorias ao \emph{software} de repositório institucional desenvolvido.
+
+Como proposta futura, fica a sugestão da criação de um recurso dentro do próprio
+repositório institucional, que permita realizar anotações em cima das publicações
+acadêmicas, como a adição de comentários ou rabiscos de caneta. Este recurso poderia
+ser especialmente útil para os orientadores, que poderiam adicionar sugestões ou
+correções as pesquisas dentro da própria plataforma. No momento em que este trabalho
+foi desenvolvido, foram encontradas poucas bibliotecas que permitem este tipo de
+edição diretamente pelo o navegador do usuário, sendo em maioria pagas,
+inviabilizando a aplicação do recurso no sistema.
