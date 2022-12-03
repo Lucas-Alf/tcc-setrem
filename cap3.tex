@@ -254,6 +254,60 @@ em pastas, que normalmente são encontradas em projetos feitos em React, sendo:
           o tema claro, tema escuro, cores primárias, secundárias, etc.
 \end{enumerate}
 
+\section{Implantação da Aplicação}
+
+Nesta seção será apresentado um exemplo de como o repositório institucional
+desenvolvido pode ser implantado na infraestrutura de nuvem da \emph{Digital Ocean},
+e como pode ser escalado para anteder altas demandas.
+
+\subsection{Implantação em nuvem}
+
+Para realizar a implantação do repositórios institucional em nuvem, foi escolhido
+o provedor de nuvem \emph{Digital Ocean}, pois este apresentava o melhor custo-benefício
+dentre os provedores de nuvem no momento que este trabalho foi realizado. Porém, é
+necessário ressaltar que o sistema desenvolvido não depende exclusivamente dos
+serviços oferecidos pela \emph{Digital Ocean}, podendo ser implantado em qualquer
+outro provedor de nuvem, e até mesmo de forma \emph{on-premises} se necessário.
+
+\begin{figure}[H]
+    \caption{Diagrama de Infraestrutura de Nuvem}
+    \centering
+    \frame{\includegraphics[scale=0.56]{img/do_infra.png}}
+    \label{fig:do_infra}
+\end{figure}
+
+A Figura \ref{fig:do_infra} apresenta um modelo de como o repositório institutional
+desenvolvido pode ser implantado na infraestrutura da \emph{Digital Ocean}.
+No modelo apresentado, é utilizado do serviço de \emph{App Platform} oferecido pela
+\emph{Digital Ocean}, para realizar a implantação do \emph{backend} e \emph{frontend}
+do repositório institucional.
+
+No \emph{App Platform} é necessário informar uma fonte para a aplicação, que neste
+modelo foi utilizado do código fonte presente no \emph{GitHub}, porém poderia ser
+utilizado o \emph{GitLab}, ou utilizar de imagens de container armazenadas no
+\emph{Docker Hub}, ou no próprio \emph{Container Registry} oferecido pela
+\emph{Digital Ocean}.
+
+O \emph{App Platform} monitora a fonte informada, e sempre que existe uma nova versão
+ele automaticamente realiza o \emph{build} da aplicação, no caso de informado o
+\emph{GitHub} ou \emph{GitLab} como fonte, ou realiza o \emph{pull} da nova imagem,
+caso informado o \emph{Docker Hub} ou outro \emph{Container Registry} como fonte.
+
+O serviços implantados por meio do \emph{App Platform} podem ser facilmente escalonados
+por meio do painel de controle da \emph{Digital Ocean}, tanto de forma vertical,
+aumentando o número de recursos por instância, e de forma horizontal, aumentando o
+número de replicas rodando de forma paralela, e distribuindo a carga por meio de um
+\emph{load balancer}.
+
+No modelo apresentado, também é utilizado de uma instância do banco de dados
+\emph{PostgreSQL} por meio do serviço \emph{Managed Database}, que também
+pode ser escalonado tanto de forma tanto vertical quanto horizontal por meio do painel
+de controle. E o serviço de armazenamento de objetos em nuvem, denominado de
+\emph{Digital Ocean Spaces}, equivalente ao serviço \emph{S3} da \emph{Amazon},
+para realizar o armazenamento dos documentos. Este último em teoria não precisa
+ser escalonado, visto que seus documentos já são distribuídos por meio de uma
+CDN (\emph{Content Delivery Network}) global.
+
 
 \section{Análise dos Resultados}
 
